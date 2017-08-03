@@ -1,0 +1,24 @@
+[submodule "URL"]
+	path = URL
+	url = git@github.com:Valota/data-syntax-URL.git
+[submodule "wall"]
+	path = wall
+	url = git@github.com:Valota/data-syntax-wall.git
+[submodule "twitter"]
+	path = twitter
+	url = git@github.com:Valota/data-syntax-twitter.git
+[submodule "news-with-images-and-paragraphs"]
+	path = news-with-images-and-paragraphs
+	url = git@github.com:Valota/data-syntax-news-with-images-and-paragraphs.git
+[submodule "interactive-bulletin-board"]
+	path = interactive-bulletin-board
+	url = git@github.com:Valota/data-syntax-interactive-bulletin-board.git
+[submodule "instagram"]
+	path = instagram
+	url = git@github.com:Valota/data-syntax-instagram.git
+[submodule "health-and-safety"]
+	path = health-and-safety
+	url = git@github.com:Valota/data-syntax-health-and-safety.git
+[submodule "facebook"]
+	path = facebook
+	url = git@github.com:Valota/data-syntax-facebook.git
