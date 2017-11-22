@@ -22,3 +22,6 @@
 [submodule "facebook"]
 	path = facebook
 	url = git@github.com:Valota/data-syntax-facebook.git
+[submodule "google-analytics"]
+	path = google-analytics
+	url = git@github.com:Valota/data-syntax-google-analytics.git
