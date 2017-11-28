@@ -25,3 +25,6 @@
 [submodule "google-analytics"]
 	path = google-analytics
 	url = git@github.com:Valota/data-syntax-google-analytics.git
+[submodule "google-calendar-tasks"]
+	path = google-calendar-tasks
+	url = git@github.com:Valota/data-syntax-google-calendar-tasks.git
