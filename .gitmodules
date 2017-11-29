@@ -28,3 +28,6 @@
 [submodule "google-calendar-tasks"]
 	path = google-calendar-tasks
 	url = git@github.com:Valota/data-syntax-google-calendar-tasks.git
+[submodule "data-syntax-table"]
+	path = data-syntax-table
+	url = git@github.com:Valota/data-syntax-table.git
