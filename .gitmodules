@@ -33,3 +33,6 @@
 [submodule "table"]
 	path = table
 	url = git@github.com:Valota/data-syntax-table.git
+[submodule "oauth2-access-token"]
+	path = oauth2-access-token
+	url = git@github.com:Valota/data-syntax-oauth2-access-token.git
