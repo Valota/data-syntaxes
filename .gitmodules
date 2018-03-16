@@ -36,3 +36,6 @@
 [submodule "oauth2-access-token"]
 	path = oauth2-access-token
 	url = git@github.com:Valota/data-syntax-oauth2-access-token.git
+[submodule "linkedin"]
+	path = linkedin
+	url = git@github.com:Valota/data-syntax-linkedin.git
