@@ -39,3 +39,6 @@
 [submodule "linkedin"]
 	path = linkedin
 	url = git@github.com:Valota/data-syntax-linkedin.git
+[submodule "stock"]
+	path = stock
+	url = git@github.com:Valota/data-syntax-stock.git
