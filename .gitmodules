@@ -42,3 +42,6 @@
 [submodule "stock"]
 	path = stock
 	url = git@github.com:Valota/data-syntax-stock.git
+[submodule "yammer"]
+	path = yammer
+	url = git@github.com:Valota/data-syntax-yammer.git
