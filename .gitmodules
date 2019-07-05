@@ -45,3 +45,6 @@
 [submodule "yammer"]
 	path = yammer
 	url = git@github.com:Valota/data-syntax-yammer.git
+[submodule "jira-issues"]
+	path = jira-issues
+	url = git@github.com:Valota/data-syntax-jira-issues.git
