@@ -1,1 +1,4 @@
 .idea
+input.json
+output.json
+prepare.sh

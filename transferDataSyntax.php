@@ -1,6 +1,6 @@
- <?php
+<?php
 
- //chdir(__DIR__);
+//chdir(__DIR__);
 
 function transferObj($data) {
 	$ret = [];
@@ -24,8 +24,8 @@ function transferObj($data) {
 			}
 			$retVal = transferObj($value);
 
-			if(isset($retVal['required'])) {
-				if($retVal['required']) {
+			if (isset($retVal['required'])) {
+				if ($retVal['required']) {
 					$requireds[] = $key;
 				}
 				unset($retVal['required']);
@@ -33,7 +33,7 @@ function transferObj($data) {
 			$ret['properties'][$key] = $retVal;
 
 		}
-		if(count($requireds)) {
+		if (count($requireds)) {
 			$ret['required'] = $requireds;
 		}
 
@@ -42,8 +42,9 @@ function transferObj($data) {
 		switch ($data['vType']) {
 
 			case 'id':
-				$ret['type'] = ['string','integer'];
-        $ret['description'] = 'id';
+				$ret['type'] = ['string',
+								'integer'];
+				$ret['description'] = 'id';
 				break;
 
 			case 'url':
@@ -52,36 +53,37 @@ function transferObj($data) {
 				break;
 
 			case 'text':
-      $ret['type'] = 'string';
-      break;
+				$ret['type'] = 'string';
+				break;
 			case 'language':
-      $ret['type'] = 'string';
-      $ret['description'] = 'language';
-      break;
+				$ret['type'] = 'string';
+				$ret['description'] = 'language';
+				break;
 			case 'image':
-      $ret['type'] = 'string';
-      $ret['description'] = 'image';
-      break;
+				$ret['type'] = 'string';
+				$ret['description'] = 'image';
+				break;
 			case 'color':
-      $ret['type'] = 'string';
-      $ret['description'] = 'color';
-      break;
+				$ret['type'] = 'string';
+				$ret['description'] = 'color';
+				break;
 			case 'id_string':
-      $ret['type'] = 'string';
-      $ret['description'] = 'id string';
-      break;
+				$ret['type'] = 'string';
+				$ret['description'] = 'id string';
+				break;
 
 
 			case 'date':
-      $ret['type'] = 'integer';
-      $ret['description'] = 'date';
-      break;
+				$ret['type'] = 'integer';
+				$ret['description'] = 'date';
+				break;
 			case 'int':
 				$ret['type'] = 'integer';
 				break;
 
 			case 'boolean':
-				$ret['type'] = ['integer','boolean'];
+				$ret['type'] = ['integer',
+								'boolean'];
 				break;
 
 			case 'double':
@@ -105,8 +107,6 @@ function transferObj($data) {
 	}
 
 
-
-
 	return $ret;
 }
 
@@ -114,11 +114,10 @@ function convertSyntaxToJSONSchema($id, $name, $input) {
 	$ret = ["\$id" => $id,
 			"\$schema" => "http://json-schema.org/draft-07/schema#",
 			"description" => $name];
-	if($input) {
+	if ($input) {
 		$obj = transferObj($input);
 		$ret += $obj;
 	}
-
 
 
 	return $ret;
@@ -126,17 +125,39 @@ function convertSyntaxToJSONSchema($id, $name, $input) {
 
 }
 
-if(!isset($argv[1])) {
-  die("Missing input file" . PHP_EOL);
+if (!isset($argv[1])) {
+	die("Usage transferDataSyntax.php inputfile.json [outputfile.json [version tag]]" . PHP_EOL);
 }
-$parts = explode('.',$argv[1]);
+
+$parts = explode('.', $argv[1]);
 $file_contents = json_decode(file_get_contents($argv[1]), true);
 
+$output = $parts[0];
+$outputFile = $argv[1];
+$outputToConsole = true;
+if (isset($argv[2])) {
+	$output = $argv[2];
+	$outputFile = $argv[2] .'.json';
+	$outputToConsole = false;
+}
 
-$url = "https://raw.githubusercontent.com/Valota/data-syntax-{$parts[0]}/v3.0.0/{$argv[1]}";
-$title = ucwords(str_replace('-', ' ', $parts[0]));
-$schema = convertSyntaxToJSONSchema($url, $title .' data syntax for Valotalive',$file_contents);
-	if(isset($schema['type']) && $schema['type'] ==='array' && isset($schema['required'])) {
-		unset($schema['required']);
-	}
-  echo json_encode($schema) .PHP_EOL;
+$version = "v1.0.0";
+
+
+if (isset($argv[3])) {
+	$version = $argv[3];
+}
+
+
+$url = "https://raw.githubusercontent.com/Valota/data-syntax-{$output}/{$version}/{$outputFile}";
+$title = ucwords(str_replace('-', ' ', $output));
+$schema = convertSyntaxToJSONSchema($url, $title . ' data syntax for Valotalive', $file_contents);
+if (isset($schema['type']) && $schema['type'] === 'array' && isset($schema['required'])) {
+	unset($schema['required']);
+}
+if(!$outputToConsole) {
+	file_put_contents($outputFile, json_encode($schema, JSON_PRETTY_PRINT));
+} else {
+	echo json_encode($schema) . PHP_EOL;
+}
+

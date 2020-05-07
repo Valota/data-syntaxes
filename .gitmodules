@@ -48,3 +48,51 @@
 [submodule "jira-issues"]
 	path = jira-issues
 	url = git@github.com:Valota/data-syntax-jira-issues.git
+[submodule "combined-apps"]
+	path = combined-apps
+	url = git@github.com:Valota/data-syntax-combined-apps.git
+[submodule "data-syntax-comparison-matrix"]
+	path = data-syntax-comparison-matrix
+	url = git@github.com:Valota/data-syntax-comparison-matrix.git
+[submodule "comparison-matrix"]
+	path = comparison-matrix
+	url = git@github.com:Valota/data-syntax-comparison-matrix.git
+[submodule "custom-source"]
+	path = custom-source
+	url = git@github.com:Valota/data-syntax-custom-source.git
+[submodule "dcv"]
+	path = dcv
+	url = git@github.com:Valota/data-syntax-dcv.git
+[submodule "external-source"]
+	path = external-source
+	url = git@github.com:Valota/data-syntax-external-source.git
+[submodule "feedback-conversation"]
+	path = feedback-conversation
+	url = git@github.com:Valota/data-syntax-feedback-conversation.git
+[submodule "key-metrics"]
+	path = key-metrics
+	url = git@github.com:Valota/data-syntax-key-metrics.git
+[submodule "media-monitor"]
+	path = media-monitor
+	url = git@github.com:Valota/data-syntax-media-monitor.git
+[submodule "neste-safety-data"]
+	path = neste-safety-data
+	url = git@github.com:Valota/data-syntax-neste-safety-data.git
+[submodule "neste-utilization-data"]
+	path = neste-utilization-data
+	url = git@github.com:Valota/data-syntax-neste-utilization-data.git
+[submodule "okr-grading"]
+	path = okr-grading
+	url = git@github.com:Valota/data-syntax-okr-grading.git
+[submodule "okr-tracking"]
+	path = okr-tracking
+	url = git@github.com:Valota/data-syntax-okr-tracking.git
+[submodule "single-number-graph"]
+	path = single-number-graph
+	url = git@github.com:Valota/data-syntax-single-number-graph.git
+[submodule "weather"]
+	path = weather
+	url = git@github.com:Valota/data-syntax-weather.git
+[submodule "wordcloud"]
+	path = wordcloud
+	url = git@github.com:Valota/data-syntax-wordcloud.git
