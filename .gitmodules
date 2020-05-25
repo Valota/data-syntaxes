@@ -96,3 +96,6 @@
 [submodule "wordcloud"]
 	path = wordcloud
 	url = git@github.com:Valota/data-syntax-wordcloud.git
+[submodule "slack"]
+	path = slack
+	url = git@github.com:Valota/data-syntax-slack.git
