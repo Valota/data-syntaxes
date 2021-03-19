@@ -1,2 +1,2 @@
 # data-syntaxes
-All data syntaxes
+Valota public data syntaxes
