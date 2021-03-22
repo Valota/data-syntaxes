@@ -1,0 +1,50 @@
+{
+  "$id": "https://raw.githubusercontent.com/Valota/data-syntax-teams/teams.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Slack data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+    "messages": {
+      "title": "Array of messages",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "title": "HTML-formated message",
+            "type": "string"
+          },
+          "created": {
+            "title": "Epoch timestamp",
+            "type": "number"
+          },
+          "id": {
+            "title": "GUID of the message",
+            "type": ["string", "number"]
+          },
+          "user": {
+            "title": "Sender",
+            "type": "object",
+            "properties": {
+              "name": {
+                "title": "Name of the user",
+                "type": "string"
+              },
+              "avatar": {
+                "title": "URI to the user's avatar",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "required": ["text", "created", "id", "user"]
+      }
+    },
+    "channel": {
+      "title": "Name of the channel",
+      "type": "string"
+    }
+  },
+  "required": ["messages", "channel"]
+}
