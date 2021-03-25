@@ -1,0 +1,197 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-instagram\/v3.0.0\/instagram.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Instagram data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "comments": {
+		"type": "integer"
+	  },
+	  "published": {
+		"type": "integer"
+	  },
+	  "user": {
+		"type": "object",
+		"properties": {
+		  "id": {
+			"type": "string",
+			"description": "id string"
+		  },
+		  "full_name": {
+			"type": "string"
+		  },
+		  "profile_picture": {
+			"type": "string",
+			"description": "uri to content"
+		  },
+		  "username": {
+			"type": "string",
+			"description": "uri to content"
+		  },
+		  "followed_by": {
+			"type": "integer"
+		  }
+		}
+	  },
+	  "users_in_photo": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"user": {
+			  "type": "object",
+			  "properties": {
+				"id": {
+				  "type": "string",
+				  "description": "id string"
+				},
+				"full_name": {
+				  "type": "string"
+				},
+				"profile_picture": {
+				  "type": "string",
+				  "description": "uri to content"
+				},
+				"username": {
+				  "type": "string",
+				  "description": "uri to content"
+				}
+			  }
+			},
+			"position": {
+			  "type": "object",
+			  "properties": {
+				"x": {
+				  "type": "number"
+				},
+				"y": {
+				  "type": "number"
+				}
+			  }
+			}
+		  },
+		  "required": [
+			"user",
+			"position"
+		  ]
+		}
+	  },
+	  "caption": {
+		"type": "object",
+		"properties": {
+		  "text": {
+			"type": "string"
+		  },
+		  "entities": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"type": {
+				  "type": "string"
+				},
+				"value": {
+				  "type": "string",
+				  "description": "uri to content"
+				},
+				"start": {
+				  "type": "integer"
+				},
+				"end": {
+				  "type": "integer"
+				}
+			  },
+			  "required": [
+				"type",
+				"value",
+				"start",
+				"end"
+			  ]
+			}
+		  },
+		  "from": {
+			"type": "object",
+			"properties": {
+			  "id": {
+				"type": "string",
+				"description": "id string"
+			  },
+			  "full_name": {
+				"type": "string"
+			  },
+			  "profile_picture": {
+				"type": "string",
+				"description": "uri to content"
+			  },
+			  "username": {
+				"type": "string",
+				"description": "uri to content"
+			  }
+			}
+		  }
+		}
+	  },
+	  "type": {
+		"type": "string"
+	  },
+	  "id": {
+		"type": "string",
+		"description": "id string"
+	  },
+	  "media": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"type": {
+			  "type": "string"
+			},
+			"url": {
+			  "type": "string",
+			  "description": "uri to content"
+			}
+		  },
+		  "required": [
+			"type",
+			"url"
+		  ]
+		}
+	  },
+	  "likes": {
+		"type": "integer"
+	  },
+	  "durationSeconds": {
+		"type": "integer"
+	  },
+	  "location": {
+		"type": "object",
+		"properties": {
+		  "latitude": {
+			"type": "number"
+		  },
+		  "id": {
+			"type": "integer"
+		  },
+		  "longitude": {
+			"type": "number"
+		  },
+		  "name": {
+			"type": "string"
+		  }
+		}
+	  }
+	},
+	"required": [
+	  "comments",
+	  "published",
+	  "user",
+	  "caption",
+	  "type",
+	  "id",
+	  "media",
+	  "likes"
+	]
+  }
+}

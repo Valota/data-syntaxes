@@ -1,0 +1,76 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-interactive-bulletin-board\/v2.0.0\/interactive-bulletin-board.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Interactive Bulletin Board data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "title": {
+		"type": "string"
+	  },
+	  "description": {
+		"type": "string"
+	  },
+	  "lead": {
+		"type": "string"
+	  },
+	  "category": {
+		"type": "string"
+	  },
+	  "attachments": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"title": {
+			  "type": "string"
+			},
+			"files": {
+			  "type": "array",
+			  "items": {
+				"type": "object",
+				"properties": {
+				  "filename": {
+					"type": "string",
+					"format": "uri"
+				  },
+				  "thumbnail": {
+					"type": "string",
+					"format": "uri"
+				  }
+				},
+				"required": [
+				  "filename",
+				  "thumbnail"
+				]
+			  }
+			}
+		  },
+		  "required": [
+			"title"
+		  ]
+		}
+	  },
+	  "document": {
+		"type": "string"
+	  },
+	  "time": {
+		"type": "integer"
+	  },
+	  "deleted": {
+		"type": [
+		  "integer",
+		  "boolean"
+		]
+	  }
+	},
+	"required": [
+	  "title",
+	  "description",
+	  "lead",
+	  "document",
+	  "time"
+	]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-media-monitor\/v1.0.0\/media-monitor.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Media Monitor data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"id": {
+	  "type": "string"
+	},
+	"date": {
+	  "type": "integer"
+	},
+	"name": {
+	  "type": "string"
+	},
+	"documents": {
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "docId": {
+			"type": "string"
+		  },
+		  "sourceName": {
+			"type": "string"
+		  },
+		  "sourceId": {
+			"type": "string"
+		  },
+		  "title": {
+			"type": "string"
+		  },
+		  "url": {
+			"type": "string"
+		  },
+		  "ingress": {
+			"type": "string"
+		  },
+		  "matches": {
+			"type": "array",
+			"items": {
+			  "type": "string"
+			}
+		  },
+		  "language": {
+			"type": "string"
+		  },
+		  "date": {
+			"type": "integer"
+		  },
+		  "country": {
+			"type": "string"
+		  },
+		  "authors": {
+			"type": "array",
+			"items": {
+			  "type": "string"
+			}
+		  },
+		  "alike": {
+			"type": "integer"
+		  }
+		},
+		"required": [
+		  "docId",
+		  "sourceName",
+		  "sourceId",
+		  "title",
+		  "url",
+		  "date"
+		]
+	  }
+	}
+  },
+  "required": [
+	"id",
+	"date",
+	"name"
+  ]
+}

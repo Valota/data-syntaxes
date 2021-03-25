@@ -1,0 +1,139 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-slack\/v1.0.0\/slack.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Slack data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"messages": {
+	  "title": "Array of messages",
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "html": {
+			"title": "HTML-formated message",
+			"type": "string"
+		  },
+		  "md5": {
+			"title": "Unique MD5 for the message",
+			"type": "string"
+		  },
+		  "created": {
+			"title": "Epoch timestamp",
+			"type": "number"
+		  },
+		  "files": {
+			"title": "Pictures or videos attached to the message",
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"url": {"type": "string","format": "uri"},
+				"title": {"type": "string"},
+				"is_img": {"type": "boolean"},
+				"is_video": {"type": "boolean"},
+				"thumbnail": {"type": "string","format": "uri"}
+			  },
+			  "required": ["url","title","is_img","is_video"]
+			}
+		  },
+		  "attachments": {
+			"title": "Attachments to the message",
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"type": {
+				  "type": "string"
+				},
+				"filetype": {
+				  "type": "string"
+				},
+				"name": {
+				  "type": "string"
+				},
+				"title": {
+				  "type": "string"
+				},
+				"title_link": {
+				  "type": "string"
+				},
+				"text": {
+				  "type": "string"
+				},
+				"fallback": {
+				  "type": "string"
+				},
+				"from_url": {
+				  "type": "string"
+				},
+				"service_icon": {
+				  "type": "string"
+				},
+				"service_name": {
+				  "type": "string"
+				},
+				"id": {
+				  "type": [
+					"string",
+					"number"
+				  ]
+				},
+				"original_url": {
+				  "type": "string"
+				},
+				"contents": {
+				  "type": "string"
+				},
+				"html": {
+				  "type": "string"
+				}
+			  },
+			  "required": ["title"]
+			}
+		  },
+		  "id": {
+			"title": "GUID of the message",
+			"type": ["string", "number"]
+		  },
+		  "user": {
+			"title": "Sender",
+			"type": "object",
+			"properties": {
+			  "name": {
+				"title": "Name of the user",
+				"type": "string"
+			  },
+			  "status_emoji": {
+				"title": "status emoji for the user. Emoji is either html img-tag or utf8 html-encoded string.",
+				"type": "string"
+			  },
+			  "avatar": {
+				"title": "URI to the user's avatar",
+				"type": "string",
+				"format": "uri"
+			  }
+			}
+		  }
+		},
+		"required": [
+		  "html",
+		  "md5",
+		  "created",
+		  "id",
+		  "user",
+		  "attachments",
+		  "files"
+		]
+	  }
+	},
+	"channel": {
+	  "title": "Name of the channel",
+	  "type": "string"
+	}
+  },
+  "required": [
+	"messages",
+	"channel"
+  ]
+}

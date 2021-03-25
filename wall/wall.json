@@ -1,0 +1,351 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-wall\/v3.1.0\/wall.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Wall data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"data": {
+	  "type": "array",
+	  "minItems": 0,
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "id": {
+			"title": "Post's identifier",
+			"anyOf": [
+			  {
+				"type": "integer",
+				"faker": "finance.account"
+			  },
+			  {
+				"type": "string",
+				"faker": {
+				  "datatype.hexaDecimal": [
+					32
+				  ]
+				}
+			  }
+			]
+		  },
+		  "lang": {
+			"type": "string",
+			"title": "Language",
+			"faker": "random.locale"
+		  },
+		  "post": {
+			"type": "string",
+			"title": "Post's body text",
+			"description": "Post's text can include selected html tags",
+			"faker": "lorem.paragraph"
+		  },
+		  "title": {
+			"type": "string",
+			"title": "Post's title",
+			"faker": "lorem.sentence"
+		  },
+		  "md5": {
+			"type": "string",
+			"title": "Post's revision as md5",
+			"description": "This is used to determine if post's content has changed.",
+			"minLength": 32,
+			"maxLength": 32,
+			"faker": {
+			  "datatype.hexaDecimal": [
+				32
+			  ]
+			}
+		  },
+		  "likes": {
+			"type": "integer",
+			"minimum": 0,
+			"title": "Likes",
+			"description": "How many likes has this post received."
+		  },
+		  "displayTime": {
+			"type": "integer",
+			"title": "Post's preferred display time in seconds",
+			"minimum": 0,
+			"maximum": 300
+		  },
+		  "user": {
+			"type": "object",
+			"properties": {
+			  "name": {
+				"type": "string",
+				"title": "User's name",
+				"faker": "name.findName"
+			  },
+			  "avatar": {
+				"type": "string",
+				"title": "URI to avatar",
+				"format": "uri",
+				"chance": "avatar"
+			  }
+			},
+			"required": [
+			  "name"
+			]
+		  },
+		  "image": {
+			"type": "object",
+			"properties": {
+			  "type": {
+				"type": "string",
+				"title": "Media type",
+				"enum": [
+				  "image",
+				  "video"
+				]
+			  },
+			  "url": {
+				"type": "string",
+				"title": "Post's media.",
+				"format": "uri",
+				"description": "Can be an image or a video.",
+				"faker": {
+				  "image.imageUrl": [
+					1920,
+					1080,
+					"business",
+					false,
+					true
+				  ]
+				}
+			  },
+			  "thumbnail": {
+				"type": "string",
+				"title": "media thumbnail",
+				"format": "uri",
+				"faker": {
+				  "image.imageUrl": [
+					640,
+					480,
+					"business",
+					false,
+					true
+				  ]
+				}
+			  }
+			},
+			"required": [
+			  "url"
+			]
+		  },
+		  "published": {
+			"title": "Publish time as seconds from unix epoch",
+			"type": "integer",
+			"chance": "timestamp"
+		  },
+		  "deleted": {
+			"title": "Has the post been deleted?",
+			"type": [
+			  "integer",
+			  "boolean"
+			],
+			"enum": [
+			  0,
+			  1,
+			  false,
+			  true
+			],
+			"chance": {
+			  "bool": [
+				3
+			  ]
+			}
+		  },
+		  "comments": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"published": {
+				  "title": "Publish time as seconds from unix epoch",
+				  "type": "integer",
+				  "chance": "timestamp"
+				},
+				"deleted": {
+				  "title": "Has the comment been deleted?",
+				  "type": [
+					"integer",
+					"boolean"
+				  ],
+				  "enum": [
+					0,
+					1,
+					false,
+					true
+				  ],
+				  "chance": {
+					"bool": [
+					  3
+					]
+				  }
+				},
+				"comment": {
+				  "title": "Comment text",
+				  "type": "string",
+				  "faker": "lorem.paragraph"
+				},
+				"user": {
+				  "type": "object",
+				  "properties": {
+					"name": {
+					  "type": "string",
+					  "title": "User's name",
+					  "faker": "name.findName"
+					},
+					"avatar": {
+					  "type": "string",
+					  "title": "URI to avatar",
+					  "format": "uri",
+					  "chance": "avatar"
+					}
+				  },
+				  "required": [
+					"name"
+				  ]
+				}
+			  },
+			  "required": [
+				"published",
+				"deleted",
+				"comment",
+				"user"
+			  ]
+			}
+		  },
+		  "conf": {
+			"type": "object",
+			"properties": {
+			  "layout": {
+				"type": "string",
+				"title": "Post's layout",
+				"enum": [
+				  "fullscreen",
+				  "single"
+				]
+			  },
+			  "expires": {
+				"title": "expires time as seconds from unix epoch",
+				"type": "integer",
+				"chance": "timestamp"
+			  }
+			},
+			"required": [
+			  "layout"
+			]
+		  },
+		  "pages": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"url": {
+				  "type": "string",
+				  "title": "page's media",
+				  "format": "uri",
+				  "faker": {
+					"image.imageUrl": [
+					  1920,
+					  1080,
+					  "business",
+					  false,
+					  true
+					]
+				  }
+				},
+				"thumbnail": {
+				  "type": "string",
+				  "title": "page's thumbnail",
+				  "format": "uri",
+				  "faker": {
+					"image.imageUrl": [
+					  640,
+					  480,
+					  "business",
+					  false,
+					  true
+					]
+				  }
+				},
+				"displayTime": {
+				  "type": "integer",
+				  "title": "page's preferred display time in seconds",
+				  "minimum": 0,
+				  "maximum": 300
+				}
+			  },
+			  "required": [
+				"url"
+			  ]
+			}
+		  },
+		  "hideInEmbedded": {
+			"title": "Hide this post in embedded apps",
+			"type": "boolean",
+			"chance": {
+			  "bool": [
+				3
+			  ]
+			}
+		  }
+		},
+		"required": [
+		  "id",
+		  "post",
+		  "likes",
+		  "user",
+		  "image",
+		  "published"
+		]
+	  }
+	},
+	"config": {
+	  "type": "object",
+	  "properties": {
+		"name": {
+		  "type": "string",
+		  "title": "Name of the source",
+		  "faker": "lorem.sentence"
+		},
+		"bell": {
+		  "type": "object",
+		  "title": "Bell notification",
+		  "properties": {
+			"user": {
+			  "type": "object",
+			  "properties": {
+				"name": {
+				  "type": "string",
+				  "title": "User's name",
+				  "faker": "name.findName"
+				},
+				"avatar": {
+				  "type": "string",
+				  "title": "URI to avatar",
+				  "format": "uri",
+				  "chance": "avatar"
+				}
+			  },
+			  "required": [
+				"name"
+			  ]
+			},
+			"date": {
+			  "title": "Publish date as seconds from unix epoch",
+			  "type": "integer",
+			  "chance": "timestamp"
+			}
+		  },
+		  "additionalProperties": false
+		}
+	  },
+	  "additionalProperties": false
+	}
+  },
+  "required": [
+	"config",
+	"data"
+  ]
+}

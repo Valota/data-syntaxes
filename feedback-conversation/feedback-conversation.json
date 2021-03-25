@@ -1,0 +1,85 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-feedback-conversation\/v1.0.0\/feedback-conversation.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Feedback Conversation data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "id": {
+		"type": [
+		  "string",
+		  "integer"
+		],
+		"description": "id"
+	  },
+	  "avatar": {
+		"type": "string",
+		"description": "uri to content"
+	  },
+	  "displayName": {
+		"type": "string"
+	  },
+	  "email": {
+		"type": "string"
+	  },
+	  "creationDate": {
+		"type": "integer"
+	  },
+	  "lastModificationDate": {
+		"type": "integer"
+	  },
+	  "question": {
+		"type": "string"
+	  },
+	  "message": {
+		"type": "string"
+	  },
+	  "tags": {
+		"type": "array",
+		"items": {
+		  "type": "string"
+		}
+	  },
+	  "replies": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"creationDate": {
+			  "type": "integer"
+			},
+			"message": {
+			  "type": "string"
+			},
+			"displayName": {
+			  "type": "string"
+			},
+			"email": {
+			  "type": "string"
+			},
+			"avatar": {
+			  "type": "string",
+			  "description": "uri to content"
+			}
+		  },
+		  "required": [
+			"creationDate",
+			"message",
+			"displayName",
+			"email"
+		  ]
+		}
+	  }
+	},
+	"required": [
+	  "id",
+	  "displayName",
+	  "email",
+	  "creationDate",
+	  "lastModificationDate",
+	  "question",
+	  "message"
+	]
+  }
+}

@@ -1,0 +1,75 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-dcv\/v1.0.0\/dcv.json",
+    "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+    "description": "Dcv data syntax for Valotalive",
+    "type": "object",
+    "properties": {
+        "language": {
+            "type": "object",
+            "properties": {}
+        },
+        "fuel": {
+            "type": "string"
+        },
+        "output": {
+            "type": "string"
+        },
+        "weight": {
+            "type": "string"
+        },
+        "end_use": {
+            "type": "string"
+        },
+        "project": {
+            "type": "string"
+        },
+        "customer": {
+            "type": "string"
+        },
+        "rotation": {
+            "type": "string"
+        },
+        "destination": {
+            "type": "string"
+        },
+        "engine_role": {
+            "type": "string"
+        },
+        "engine_type": {
+            "type": "string"
+        },
+        "rated_speed": {
+            "type": "string"
+        },
+        "cylinder_bore": {
+            "type": "string"
+        },
+        "piston_stroke": {
+            "type": "string"
+        },
+        "number_of_engines_in_project": {
+            "type": "integer"
+        },
+        "image": {
+            "type": "string",
+            "description": "uri to content"
+        }
+    },
+    "required": [
+        "fuel",
+        "output",
+        "weight",
+        "end_use",
+        "project",
+        "customer",
+        "rotation",
+        "destination",
+        "engine_role",
+        "engine_type",
+        "rated_speed",
+        "cylinder_bore",
+        "piston_stroke",
+        "number_of_engines_in_project",
+        "image"
+    ]
+}

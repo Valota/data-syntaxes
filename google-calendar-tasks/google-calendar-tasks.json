@@ -1,0 +1,51 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-google-calendar-tasks\/v2.0.0\/google-calendar-tasks.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Google Calendar tasks data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"categories": {
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "id": {
+			"type": "integer"
+		  },
+		  "data": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"startDate": {
+				  "type": "integer"
+				},
+				"endDate": {
+				  "type": "integer"
+				},
+				"type": {
+				  "type": "string"
+				},
+				"title": {
+				  "type": "string"
+				}
+			  },
+			  "required": [
+				"startDate",
+				"type",
+				"title"
+			  ]
+			}
+		  }
+		},
+		"required": [
+		  "id",
+		  "data"
+		]
+	  }
+	}
+  },
+  "required": [
+	"categories"
+  ]
+}

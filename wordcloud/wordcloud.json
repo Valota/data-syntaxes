@@ -1,0 +1,40 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-wordcloud\/v1.0.0\/wordcloud.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Wordcloud data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "name": {
+		"type": "string"
+	  },
+	  "date": {
+		"type": "integer"
+	  },
+	  "data": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"text": {
+			  "type": "string"
+			},
+			"weight": {
+			  "type": "number"
+			}
+		  },
+		  "required": [
+			"text",
+			"weight"
+		  ]
+		}
+	  }
+	},
+	"required": [
+	  "name",
+	  "date",
+	  "data"
+	]
+  }
+}

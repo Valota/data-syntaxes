@@ -1,0 +1,86 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-neste-utilization-data\/v1.0.0\/neste-utilization-data.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Neste Utilization Data data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"language": {
+	  "type": "object",
+	  "properties": {}
+	},
+	"sites_to_circulate": {
+	  "type": "array",
+	  "items": {
+		"type": "string"
+	  }
+	},
+	"util_data": {
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "line": {
+			"type": "string"
+		  },
+		  "actual": {
+			"type": "number"
+		  },
+		  "forecast": {
+			"type": "number"
+		  }
+		},
+		"required": [
+		  "line",
+		  "actual",
+		  "forecast"
+		]
+	  }
+	},
+	"util_sites": {
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "site": {
+			"type": "string"
+		  },
+		  "lines": {
+			"type": "object",
+			"properties": {
+			  "lines": {
+				"type": "array",
+				"items": {
+				  "type": "string"
+				}
+			  },
+			  "total_line": {
+				"type": "string"
+			  }
+			}
+		  },
+		  "latitude": {
+			"type": "number"
+		  },
+		  "longitude": {
+			"type": "number"
+		  },
+		  "name": {
+			"type": "string"
+		  }
+		},
+		"required": [
+		  "site",
+		  "lines",
+		  "latitude",
+		  "longitude",
+		  "name"
+		]
+	  }
+	}
+  },
+  "required": [
+	"sites_to_circulate",
+	"util_data",
+	"util_sites"
+  ]
+}

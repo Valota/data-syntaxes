@@ -1,0 +1,44 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-key-metrics\/v1.0.0\/key-metrics.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Key Metrics data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"title": {
+	  "type": "string"
+	},
+	"data": {
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "currentValue": {
+			"type": "number"
+		  },
+		  "title": {
+			"type": "string"
+		  },
+		  "icon": {
+			"type": "string",
+			"description": "uri to content"
+		  },
+		  "borders": {
+			"type": "array",
+			"items": {
+			  "type": "number"
+			}
+		  }
+		},
+		"required": [
+		  "currentValue",
+		  "title",
+		  "icon",
+		  "borders"
+		]
+	  }
+	}
+  },
+  "required": [
+	"data"
+  ]
+}

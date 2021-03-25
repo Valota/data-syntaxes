@@ -1,0 +1,5 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-custom-source\/v1.0.0\/custom-source.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Custom Source data syntax for Valotalive"
+}

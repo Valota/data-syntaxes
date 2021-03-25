@@ -1,0 +1,53 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-combined-app\/v1.0.0\/combined-apps.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Combined app data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "uuid": {
+		"type": [
+		  "string",
+		  "integer"
+		],
+		"description": "id"
+	  },
+	  "url": {
+		"type": "string"
+	  },
+	  "name": {
+		"type": "string"
+	  },
+	  "source": {
+		"type": "object",
+		"properties": {
+		  "changeID": {
+			"type": "string"
+		  },
+		  "latestContent": {
+			"type": "integer"
+		  },
+		  "updateTime": {
+			"type": "integer"
+		  }
+		}
+	  },
+	  "latestContent": {
+		"type": "integer"
+	  },
+	  "palette": {
+		"type": "object",
+		"properties": []
+	  },
+	  "customs": {
+		"type": "object",
+		"properties": []
+	  }
+	},
+	"required": [
+	  "uuid",
+	  "url"
+	]
+  }
+}

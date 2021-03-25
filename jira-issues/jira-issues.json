@@ -1,0 +1,149 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-jira-issues\/v3.0.0\/jira-issues.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Jira Issues data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "name": {
+		"type": "string"
+	  },
+	  "id": {
+		"type": [
+		  "string",
+		  "integer"
+		],
+		"description": "id"
+	  },
+	  "total": {
+		"type": "integer"
+	  },
+	  "issues": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"id": {
+			  "type": [
+				"string",
+				"integer"
+			  ],
+			  "description": "id"
+			},
+			"key": {
+			  "type": [
+				"string",
+				"integer"
+			  ],
+			  "description": "id"
+			},
+			"title": {
+			  "type": "string"
+			},
+			"created": {
+			  "type": "integer"
+			},
+			"updated": {
+			  "type": "integer"
+			},
+			"type": {
+			  "type": "object",
+			  "properties": {
+				"name": {
+				  "type": "string"
+				},
+				"icon": {
+				  "type": "string",
+				  "description": "uri to content"
+				}
+			  }
+			},
+			"priority": {
+			  "type": "object",
+			  "properties": {
+				"name": {
+				  "type": "string"
+				},
+				"icon": {
+				  "type": "string",
+				  "description": "uri to content"
+				},
+				"id": {
+				  "type": [
+					"string",
+					"integer"
+				  ],
+				  "description": "id"
+				}
+			  }
+			},
+			"status": {
+			  "type": "object",
+			  "properties": {
+				"name": {
+				  "type": "string"
+				},
+				"icon": {
+				  "type": "string",
+				  "description": "uri to content"
+				},
+				"id": {
+				  "type": [
+					"string",
+					"integer"
+				  ],
+				  "description": "id"
+				},
+				"colorName": {
+				  "type": "string"
+				}
+			  }
+			},
+			"assignee": {
+			  "type": "object",
+			  "properties": {
+				"name": {
+				  "type": "string"
+				},
+				"avatar": {
+				  "type": "string",
+				  "description": "uri to content"
+				}
+			  }
+			},
+			"progress": {
+			  "type": "object",
+			  "properties": {
+				"progress": {
+				  "type": "integer"
+				},
+				"total": {
+				  "type": "integer"
+				}
+			  }
+			}
+		  },
+		  "required": [
+			"id",
+			"key",
+			"title",
+			"created",
+			"updated",
+			"type",
+			"priority",
+			"status",
+			"assignee",
+			"progress"
+		  ]
+		}
+	  }
+	},
+	"required": [
+	  "name",
+	  "id",
+	  "total",
+	  "issues"
+	]
+  }
+}

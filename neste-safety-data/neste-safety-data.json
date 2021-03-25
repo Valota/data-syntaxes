@@ -1,0 +1,87 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-neste-safety-data\/v1.0.0\/neste-safety-data.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Neste Safety Data data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"language": {
+	  "type": "object",
+	  "properties": {}
+	},
+	"local_org": {
+	  "type": "string"
+	},
+	"timestamp": {
+	  "type": "integer"
+	},
+	"safedays": {
+	  "type": "object",
+	  "properties": {
+		"months": {
+		  "type": "array",
+		  "items": {
+			"type": "string"
+		  }
+		},
+		"data": {
+		  "type": "array",
+		  "items": {
+			"type": "object",
+			"properties": {}
+		  }
+		}
+	  }
+	},
+	"pse_data": {
+	  "type": "object",
+	  "properties": {
+		"data": {
+		  "type": "array",
+		  "items": {
+			"type": "object",
+			"properties": {}
+		  }
+		},
+		"months": {
+		  "type": "array",
+		  "items": {
+			"type": "string"
+		  }
+		}
+	  }
+	},
+	"tri_data": {
+	  "type": "object",
+	  "properties": {
+		"data": {
+		  "type": "array",
+		  "items": {
+			"type": "object",
+			"properties": {}
+		  }
+		},
+		"months": {
+		  "type": "array",
+		  "items": {
+			"type": "string"
+		  }
+		}
+	  }
+	},
+	"safety_data": {
+	  "type": "object",
+	  "properties": {}
+	},
+	"targets": {
+	  "type": "object",
+	  "properties": {}
+	}
+  },
+  "required": [
+	"local_org",
+	"timestamp",
+	"safedays",
+	"pse_data",
+	"tri_data"
+  ]
+}

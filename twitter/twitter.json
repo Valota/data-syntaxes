@@ -1,0 +1,385 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-twitter\/v3.0.0\/twitter.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Twitter data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "id": {
+		"type": [
+		  "string",
+		  "integer"
+		],
+		"description": "id"
+	  },
+	  "lang": {
+		"type": "string",
+		"description": "language"
+	  },
+	  "text": {
+		"type": "string"
+	  },
+	  "user": {
+		"type": "object",
+		"properties": {
+		  "id": {
+			"type": [
+			  "string",
+			  "integer"
+			],
+			"description": "id"
+		  },
+		  "url": {
+			"type": "string",
+			"description": "uri to content"
+		  },
+		  "lang": {
+			"type": "string",
+			"description": "language"
+		  },
+		  "name": {
+			"type": "string"
+		  },
+		  "id_str": {
+			"type": "string"
+		  },
+		  "location": {
+			"type": "string"
+		  },
+		  "verified": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "following": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "protected": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "time_zone": {
+			"type": "string"
+		  },
+		  "created_at": {
+			"type": "string"
+		  },
+		  "utc_offset": {
+			"type": "integer"
+		  },
+		  "description": {
+			"type": "string"
+		  },
+		  "geo_enabled": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "screen_name": {
+			"type": "string"
+		  },
+		  "listed_count": {
+			"type": "integer"
+		  },
+		  "friends_count": {
+			"type": "integer"
+		  },
+		  "is_translator": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "notifications": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "statuses_count": {
+			"type": "integer"
+		  },
+		  "default_profile": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "followers_count": {
+			"type": "integer"
+		  },
+		  "favourites_count": {
+			"type": "integer"
+		  },
+		  "profile_image_url": {
+			"type": "string",
+			"description": "uri to content"
+		  },
+		  "profile_banner_url": {
+			"type": "string",
+			"description": "uri to content"
+		  },
+		  "profile_link_color": {
+			"type": "string",
+			"description": "color"
+		  },
+		  "profile_text_color": {
+			"type": "string",
+			"description": "color"
+		  },
+		  "contributors_enabled": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "default_profile_image": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "profile_background_tile": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "profile_image_url_https": {
+			"type": "string",
+			"description": "uri to content"
+		  },
+		  "profile_background_color": {
+			"type": "string",
+			"description": "color"
+		  },
+		  "profile_sidebar_fill_color": {
+			"type": "string",
+			"description": "color"
+		  },
+		  "profile_background_image_url": {
+			"type": "string",
+			"description": "uri to content"
+		  },
+		  "profile_sidebar_border_color": {
+			"type": "string",
+			"description": "color"
+		  },
+		  "profile_use_background_image": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "profile_background_image_url_https": {
+			"type": "string",
+			"description": "uri to content"
+		  }
+		}
+	  },
+	  "place": {
+		"type": "string"
+	  },
+	  "id_str": {
+		"type": "string"
+	  },
+	  "source": {
+		"type": "string"
+	  },
+	  "entities": {
+		"type": "object",
+		"properties": {
+		  "urls": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"url": {
+				  "type": "string",
+				  "description": "uri to content"
+				},
+				"indices": {
+				  "type": "array",
+				  "items": {
+					"type": "integer"
+				  }
+				},
+				"display_url": {
+				  "type": "string",
+				  "description": "uri to content"
+				},
+				"expanded_url": {
+				  "type": "string",
+				  "description": "uri to content"
+				}
+			  },
+			  "required": [
+				"url",
+				"indices",
+				"display_url",
+				"expanded_url"
+			  ]
+			}
+		  },
+		  "media": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"id": {
+				  "type": [
+					"string",
+					"integer"
+				  ],
+				  "description": "id"
+				},
+				"url": {
+				  "type": "string",
+				  "description": "uri to content"
+				},
+				"type": {
+				  "type": "string"
+				},
+				"sizes": {
+				  "type": "object",
+				  "properties": {
+					"large": {
+					  "type": "object",
+					  "properties": {
+						"h": {
+						  "type": "integer"
+						},
+						"w": {
+						  "type": "integer"
+						},
+						"resize": {
+						  "type": "string"
+						}
+					  }
+					},
+					"small": {
+					  "type": "object",
+					  "properties": {
+						"h": {
+						  "type": "integer"
+						},
+						"w": {
+						  "type": "integer"
+						},
+						"resize": {
+						  "type": "string"
+						}
+					  }
+					},
+					"thumb": {
+					  "type": "object",
+					  "properties": {
+						"h": {
+						  "type": "integer"
+						},
+						"w": {
+						  "type": "integer"
+						},
+						"resize": {
+						  "type": "string"
+						}
+					  }
+					},
+					"medium": {
+					  "type": "object",
+					  "properties": {
+						"h": {
+						  "type": "integer"
+						},
+						"w": {
+						  "type": "integer"
+						},
+						"resize": {
+						  "type": "string"
+						}
+					  }
+					}
+				  }
+				},
+				"id_str": {
+				  "type": "string"
+				},
+				"indices": {
+				  "type": "array",
+				  "items": {
+					"type": "integer"
+				  }
+				},
+				"media_url": {
+				  "type": "string",
+				  "description": "uri to content"
+				},
+				"display_url": {
+				  "type": "string",
+				  "description": "uri to content"
+				},
+				"expanded_url": {
+				  "type": "string",
+				  "description": "uri to content"
+				},
+				"media_url_https": {
+				  "type": "string",
+				  "description": "uri to content"
+				}
+			  },
+			  "required": [
+				"id",
+				"url",
+				"type",
+				"sizes",
+				"media_url",
+				"display_url",
+				"expanded_url"
+			  ]
+			}
+		  },
+		  "hashtags": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"text": {
+				  "type": "string"
+				},
+				"indices": {
+				  "type": "array",
+				  "items": {
+					"type": "integer"
+				  }
+				}
+			  },
+			  "required": [
+				"text"
+			  ]
+			}
+		  },
+		  "user_mentions": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {}
+			}
+		  }
+		}
+	  }
+	},
+	"required": [
+	  "id",
+	  "text",
+	  "user"
+	]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-weather\/v1.0.0\/weather.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Weather data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"data": {
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "hourly": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"weather_code": {
+				  "type": "string"
+				},
+				"temperature_celsius": {
+				  "type": "number"
+				},
+				"wind_speed_kph": {
+				  "type": "number"
+				},
+				"wind_direction": {
+				  "type": "string"
+				},
+				"time_text": {
+				  "type": "string"
+				},
+				"rain_probability": {
+				  "type": "string"
+				}
+			  },
+			  "required": [
+				"weather_code",
+				"temperature_celsius",
+				"wind_speed_kph",
+				"wind_direction",
+				"time_text"
+			  ]
+			}
+		  },
+		  "time_text": {
+			"type": "string"
+		  },
+		  "sunset": {
+			"type": "string"
+		  },
+		  "sunrise": {
+			"type": "string"
+		  }
+		},
+		"required": [
+		  "hourly",
+		  "time_text",
+		  "sunset",
+		  "sunrise"
+		]
+	  }
+	},
+	"current_condition": {
+	  "type": "object",
+	  "properties": {
+		"weather_code": {
+		  "type": "string"
+		},
+		"temperature_celsius": {
+		  "type": "integer"
+		},
+		"wind_speed_kph": {
+		  "type": "number"
+		},
+		"wind_direction": {
+		  "type": "string"
+		},
+		"time_text": {
+		  "type": "string"
+		}
+	  }
+	}
+  },
+  "required": [
+	"data",
+	"current_condition"
+  ]
+}

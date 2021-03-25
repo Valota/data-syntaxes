@@ -1,0 +1,215 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-okr-grading\/v1.0.0\/okr-grading.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Okr Grading data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "id": {
+		"type": [
+		  "string",
+		  "integer"
+		],
+		"description": "id"
+	  },
+	  "end": {
+		"type": "string"
+	  },
+	  "name": {
+		"type": "string"
+	  },
+	  "owner": {
+		"type": "object",
+		"properties": {
+		  "team": {
+			"type": "object",
+			"properties": {}
+		  },
+		  "user": {
+			"type": "object",
+			"properties": {}
+		  },
+		  "group": {
+			"type": "object",
+			"properties": {}
+		  }
+		}
+	  },
+	  "start": {
+		"type": "string"
+	  },
+	  "assessments": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"created_by": {
+			  "type": "object",
+			  "properties": {
+				"name": {
+				  "type": "string"
+				},
+				"id": {
+				  "type": [
+					"string",
+					"integer"
+				  ],
+				  "description": "id"
+				}
+			  }
+			},
+			"goal_id": {
+			  "type": [
+				"string",
+				"integer"
+			  ],
+			  "description": "id"
+			},
+			"id": {
+			  "type": [
+				"string",
+				"integer"
+			  ],
+			  "description": "id"
+			},
+			"created": {
+			  "type": "number"
+			},
+			"comment": {
+			  "type": "string"
+			},
+			"edited": {
+			  "type": "string"
+			},
+			"score": {
+			  "type": "number"
+			}
+		  },
+		  "required": [
+			"created_by",
+			"goal_id",
+			"id",
+			"created",
+			"comment",
+			"score"
+		  ]
+		}
+	  },
+	  "children": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"id": {
+			  "type": [
+				"string",
+				"integer"
+			  ],
+			  "description": "id"
+			},
+			"name": {
+			  "type": "string"
+			}
+		  },
+		  "required": [
+			"id",
+			"name"
+		  ]
+		}
+	  },
+	  "categories": {
+		"type": "array"
+	  },
+	  "description": {
+		"type": "string"
+	  },
+	  "updated": {
+		"type": "number"
+	  },
+	  "created": {
+		"type": "number"
+	  },
+	  "measurement": {
+		"type": "object",
+		"properties": {
+		  "done": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "type": {
+			"type": "string"
+		  },
+		  "unit": {
+			"type": "string"
+		  },
+		  "target": {
+			"type": "integer"
+		  },
+		  "current": {
+			"type": "integer"
+		  },
+		  "initial": {
+			"type": "integer"
+		  },
+		  "updated": {
+			"type": "number"
+		  },
+		  "expected": {
+			"type": "number"
+		  },
+		  "progress": {
+			"type": "number"
+		  },
+		  "condition": {
+			"type": "string"
+		  },
+		  "is_binary": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "lower_mid": {
+			"type": "number"
+		  },
+		  "upper_mid": {
+			"type": "number"
+		  },
+		  "is_numeric": {
+			"type": [
+			  "integer",
+			  "boolean"
+			]
+		  },
+		  "lower_limit": {
+			"type": "number"
+		  },
+		  "upper_limit": {
+			"type": "number"
+		  }
+		}
+	  },
+	  "is_key_result": {
+		"type": [
+		  "integer",
+		  "boolean"
+		]
+	  },
+	  "last_checkedin": {
+		"type": "number"
+	  }
+	},
+	"required": [
+	  "id",
+	  "end",
+	  "name",
+	  "start",
+	  "description",
+	  "measurement",
+	  "is_key_result"
+	]
+  }
+}

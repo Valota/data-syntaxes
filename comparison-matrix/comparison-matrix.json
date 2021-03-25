@@ -1,0 +1,71 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-comparison-matrix\/v1.0.0\/comparison-matrix.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Comparison matrix data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"title": {
+	  "type": "string"
+	},
+	"icon": {
+	  "type": "string",
+	  "description": "uri to content"
+	},
+	"conf": {
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "icon": {
+			"type": "string"
+		  },
+		  "title": {
+			"type": "string"
+		  },
+		  "postfix": {
+			"type": "string"
+		  },
+		  "highlight": {
+			"type": "integer"
+		  },
+		  "borders": {
+			"type": "array",
+			"items": {
+			  "type": "number"
+			}
+		  }
+		},
+		"required": [
+		  "icon",
+		  "title",
+		  "borders"
+		]
+	  }
+	},
+	"groups": {
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "title": {
+			"type": "string"
+		  },
+		  "data": {
+			"type": "array",
+			"items": {
+			  "type": "number"
+			}
+		  }
+		},
+		"required": [
+		  "data"
+		]
+	  }
+	}
+  },
+  "required": [
+	"title",
+	"icon",
+	"conf"
+  ]
+}

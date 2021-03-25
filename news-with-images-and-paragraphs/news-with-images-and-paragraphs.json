@@ -1,0 +1,134 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-news-with-images-and-paragraphs\/v2.0.1\/news-with-images-and-paragraphs.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "News With Images and Paragraphs data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "id": {
+		"title": "Post's identifier",
+		"anyOf": [
+		  {
+			"type": "integer",
+			"faker": "finance.account"
+		  },
+		  {
+			"type": "string",
+			"faker": {
+			  "datatype.hexaDecimal": [
+				32
+			  ]
+			}
+		  }
+		]
+	  },
+	  "title": {
+		"type": "string",
+		"title": "Post's title",
+		"faker": "lorem.sentence"
+	  },
+	  "author": {
+		"type": "object",
+		"properties": {
+		  "name": {
+			"type": "string",
+			"title": "Poster's name",
+			"faker": "name.findName"
+		  },
+		  "avatar": {
+			"type": "string",
+			"title": "URI to avatar",
+			"format": "uri",
+			"chance": "avatar"
+		  }
+		},
+		"required": [
+		  "name"
+		]
+	  },
+	  "images": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"url": {
+			  "type": "string",
+			  "title": "Post's image.",
+			  "format": "uri",
+			  "faker": {
+				"image.imageUrl": [
+				  1920,
+				  1080,
+				  "business",
+				  false,
+				  true
+				]
+			  }
+			},
+			"caption": {
+			  "type": "string",
+			  "title": "Image caption",
+			  "faker": "lorem.sentence"
+			}
+		  },
+		  "required": [
+			"url"
+		  ]
+		}
+	  },
+	  "paragraphs": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"p": {
+			  "type": "string",
+			  "faker": "lorem.paragraphs"
+			}
+		  },
+		  "required": [
+			"p"
+		  ],
+		  "minItems": 1
+		}
+	  },
+	  "time": {
+		"title": "Publish date as seconds from unix epoch",
+		"type": "integer",
+		"chance": "timestamp"
+	  },
+	  "updated": {
+		"title": "Updated date as seconds from unix epoch",
+		"type": "integer",
+		"chance": "timestamp"
+	  },
+	  "img_path": {
+		"type": "string",
+		"title": "Path to images",
+		"faker": "internet.url"
+	  },
+	  "logo": {
+		"type": "string",
+		"format": "uri",
+		"faker": {
+		  "image.imageUrl": [
+			60,
+			60,
+			"abstract",
+			false,
+			true
+		  ]
+		}
+	  }
+	},
+	"required": [
+	  "title",
+	  "images",
+	  "paragraphs",
+	  "time",
+	  "img_path",
+	  "logo"
+	]
+  }
+}

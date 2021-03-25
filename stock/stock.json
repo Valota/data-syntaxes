@@ -1,0 +1,52 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-stock\/v2.0.0\/stock.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Stock data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "name": {
+		"type": "string"
+	  },
+	  "symbol": {
+		"type": "string"
+	  },
+	  "date": {
+		"type": "string"
+	  },
+	  "last_refreshed": {
+		"type": "integer"
+	  },
+	  "cur": {
+		"type": "number"
+	  },
+	  "high": {
+		"type": "number"
+	  },
+	  "low": {
+		"type": "number"
+	  },
+	  "prev_close": {
+		"type": "number"
+	  },
+	  "duration": {
+		"type": "string"
+	  },
+	  "values": {
+		"type": "object",
+		"properties": {}
+	  }
+	},
+	"required": [
+	  "name",
+	  "symbol",
+	  "date",
+	  "last_refreshed",
+	  "cur",
+	  "high",
+	  "low",
+	  "prev_close"
+	]
+  }
+}

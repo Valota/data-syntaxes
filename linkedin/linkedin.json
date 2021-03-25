@@ -1,0 +1,21 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-linkedin\/v2.0.0\/linkedin.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Linkedin data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "timestamp": {
+		"type": "integer"
+	  },
+	  "updateContent": {
+		"type": "object",
+		"properties": {}
+	  }
+	},
+	"required": [
+	  "timestamp"
+	]
+  }
+}

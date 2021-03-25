@@ -1,0 +1,14 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-oauth2-access-token\/v2.0.0\/oauth2-access-token.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Oauth2 Access Token data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"accessToken": {
+	  "type": "string"
+	}
+  },
+  "required": [
+	"accessToken"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-health-and-safety\/v2.0.0\/health-and-safety.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "Health and Safety data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"language": {
+	  "type": "object",
+	  "properties": []
+	},
+	"localOwner": {
+	  "type": "string"
+	},
+	"owner": {
+	  "type": "string"
+	},
+	"localCompany": {
+	  "type": "string"
+	},
+	"data": {
+	  "type": "object",
+	  "properties": {
+		"global": {
+		  "type": "array",
+		  "items": {
+			"type": "object",
+			"properties": {
+			  "month": {
+				"type": "integer"
+			  },
+			  "observations": {
+				"type": "integer"
+			  },
+			  "injuries": {
+				"type": "integer"
+			  },
+			  "year": {
+				"type": "integer"
+			  }
+			},
+			"required": [
+			  "month",
+			  "observations",
+			  "injuries",
+			  "year"
+			]
+		  }
+		},
+		"globalLocation": {
+		  "type": "array",
+		  "items": {
+			"type": "object",
+			"properties": {
+			  "country": {
+				"type": "string"
+			  },
+			  "num": {
+				"type": "integer"
+			  }
+			},
+			"required": [
+			  "country",
+			  "num"
+			]
+		  }
+		},
+		"local": {
+		  "type": "array",
+		  "items": {
+			"type": "object",
+			"properties": {
+			  "month": {
+				"type": "integer"
+			  },
+			  "observations": {
+				"type": "integer"
+			  },
+			  "injuries": {
+				"type": "integer"
+			  },
+			  "year": {
+				"type": "integer"
+			  }
+			},
+			"required": [
+			  "month",
+			  "observations",
+			  "injuries",
+			  "year"
+			]
+		  }
+		}
+	  }
+	}
+  },
+  "required": [
+	"owner",
+	"data"
+  ]
+}
