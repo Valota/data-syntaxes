@@ -38,11 +38,11 @@
 	  },
 	  "palette": {
 		"type": "object",
-		"properties": []
+		"properties": {}
 	  },
 	  "customs": {
 		"type": "object",
-		"properties": []
+		"properties": {}
 	  }
 	},
 	"required": [
