@@ -186,7 +186,7 @@
 		}
 	  },
 	  "place": {
-		"type": "string"
+		"type": ["string","null"]
 	  },
 	  "id_str": {
 		"type": "string"
