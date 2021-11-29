@@ -10,7 +10,7 @@
      "title":"coordinate pair",
      "type":"array",
      "items": {
-      "type": "float",
+      "type": "number",
       "title": "coordinate"
      }
     }
