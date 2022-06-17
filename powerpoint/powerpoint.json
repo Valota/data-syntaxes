@@ -1,0 +1,19 @@
+{
+  "$id": "https://raw.githubusercontent.com/Valota/data-syntaxes/master/powerpoint/powerpoint.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Powerpoint data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "pptxSlideUrls": {
+      "title": "Array of urls pointing to the pngs of the slides",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "title": "Picture url"
+      }
+    }
+  }
+}
