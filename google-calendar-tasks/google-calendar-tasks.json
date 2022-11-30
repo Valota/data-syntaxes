@@ -18,10 +18,20 @@
 			  "type": "object",
 			  "properties": {
 				"startDate": {
-				  "type": "integer"
+				  "type": "string"
 				},
 				"endDate": {
-				  "type": "integer"
+				  "type": "string"
+				},
+				"startIsoDate": {
+				  "type": ["string" , "null"]
+				},
+				"endIsoDate": {
+				  "type": ["string" , "null"]
+				},
+				"all_day": {
+					"type": "string",
+					"enum": ["1", "0"]
 				},
 				"type": {
 				  "type": "string"
