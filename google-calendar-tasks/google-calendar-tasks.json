@@ -1,5 +1,5 @@
 {
-  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-google-calendar-tasks\/v2.0.0\/google-calendar-tasks.json",
+  "$id": "https://raw.githubusercontent.com/Valota/data-syntaxes/master/google-calendar-tasks/google-calendar-tasks.json",
   "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
   "description": "Google Calendar tasks data syntax for Valotalive",
   "type": "object",
