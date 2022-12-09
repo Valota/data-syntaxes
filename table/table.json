@@ -8,7 +8,7 @@
    "type": "string"
   },
   "sheetTitle": {
-   "type": "text"
+   "type": "string"
   },
   "frozenRowCount": {
    "type": "integer"
