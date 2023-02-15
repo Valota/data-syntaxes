@@ -34,7 +34,7 @@
 		  "name": {
 			"type": "string",
 			"title": "Poster's name",
-			"faker": "name.findName"
+			"faker": "name.fullName"
 		  },
 		  "avatar": {
 			"type": "string",

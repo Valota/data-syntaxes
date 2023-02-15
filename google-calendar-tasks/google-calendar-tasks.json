@@ -2,6 +2,36 @@
   "$id": "https://raw.githubusercontent.com/Valota/data-syntaxes/master/google-calendar-tasks/google-calendar-tasks.json",
   "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
   "description": "Google Calendar tasks data syntax for Valotalive",
+  "definitions": {
+	"colorObj": {
+	  "type": "object",
+	  "title": "Color",
+	  "description": "Color",
+	  "properties": {
+		"id": {
+		  "type": "integer",
+		  "minimum": 0
+		},
+		"background": {
+		  "type": "string",
+		  "title": "Color string",
+		  "description": "Color string for the web",
+		  "faker":"color.rgb"
+		},
+		"foreground": {
+		  "type": "string",
+		  "title": "Color string",
+		  "description": "Color string for the web",
+		  "faker":"color.rgb"
+		}
+	  },
+	  "required": [
+		"id",
+		"background",
+		"foreground"
+	  ]
+	}
+  },
   "type": "object",
   "properties": {
 	"categories": {
@@ -18,26 +48,83 @@
 			  "type": "object",
 			  "properties": {
 				"startDate": {
-				  "type": "string"
+				  "type": "string",
+				  "vlt": {
+					"formattedDateWithinFromNow": [
+					  -2,
+					  14,
+					  "d",
+					  "X"
+					]
+				  }
 				},
 				"endDate": {
-				  "type": "string"
+				  "type": "string",
+				  "vlt": {
+					"formattedDateWithinFromNow": [
+					  -2,
+					  14,
+					  "d",
+					  "X"
+					]
+				  }
 				},
 				"startIsoDate": {
-				  "type": ["string" , "null"]
+				  "anyOf": [
+					{
+					  "type": "string",
+					  "vlt": {
+						"formattedDateWithinFromNow": [
+						  -2,
+						  14,
+						  "d",
+						  "yyyy-MM-dd"
+						]
+					  }
+					},
+					{
+					  "type": "null"
+					}
+				  ]
 				},
 				"endIsoDate": {
-				  "type": ["string" , "null"]
+				  "anyOf": [
+					{
+					  "type": "string",
+					  "vlt": {
+						"formattedDateWithinFromNow": [
+						  -2,
+						  14,
+						  "d",
+						  "yyyy-MM-dd"
+						]
+					  }
+					},
+					{
+					  "type": "null"
+					}
+				  ]
 				},
 				"all_day": {
-					"type": "string",
-					"enum": ["1", "0"]
+				  "type": "string",
+				  "enum": [
+					"1",
+					"0"
+				  ]
 				},
 				"type": {
-				  "type": "string"
+				  "type": "string",
+				  "enum": [
+					"one_day_task",
+					"multi_day_task"
+				  ]
 				},
 				"title": {
-				  "type": "string"
+				  "type": "string",
+				  "faker": "lorem.sentence"
+				},
+				"color": {
+				  "$ref": "#/definitions/colorObj"
 				}
 			  },
 			  "required": [
@@ -46,6 +133,9 @@
 				"title"
 			  ]
 			}
+		  },
+		  "color": {
+			"$ref": "#/definitions/colorObj"
 		  }
 		},
 		"required": [

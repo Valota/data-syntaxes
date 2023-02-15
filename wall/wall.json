@@ -73,7 +73,7 @@
 			  "name": {
 				"type": "string",
 				"title": "User's name",
-				"faker": "name.findName"
+				"faker": "name.fullName"
 			  },
 			  "avatar": {
 				"type": "string",
@@ -193,7 +193,7 @@
 					"name": {
 					  "type": "string",
 					  "title": "User's name",
-					  "faker": "name.findName"
+					  "faker": "name.fullName"
 					},
 					"avatar": {
 					  "type": "string",
@@ -319,7 +319,7 @@
 				"name": {
 				  "type": "string",
 				  "title": "User's name",
-				  "faker": "name.findName"
+				  "faker": "name.fullName"
 				},
 				"avatar": {
 				  "type": "string",
