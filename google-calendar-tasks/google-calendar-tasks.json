@@ -3,33 +3,11 @@
   "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
   "description": "Google Calendar tasks data syntax for Valotalive",
   "definitions": {
-	"colorObj": {
-	  "type": "object",
-	  "title": "Color",
-	  "description": "Color",
-	  "properties": {
-		"id": {
-		  "type": "integer",
-		  "minimum": 0
-		},
-		"background": {
-		  "type": "string",
-		  "title": "Color string",
-		  "description": "Color string for the web",
-		  "faker":"color.rgb"
-		},
-		"foreground": {
-		  "type": "string",
-		  "title": "Color string",
-		  "description": "Color string for the web",
-		  "faker":"color.rgb"
-		}
-	  },
-	  "required": [
-		"id",
-		"background",
-		"foreground"
-	  ]
+	"colorString": {
+	  "type": "string",
+	  "title": "Color string",
+	  "description": "Color string for the web",
+	  "faker":"color.rgb"
 	}
   },
   "type": "object",
@@ -124,7 +102,7 @@
 				  "faker": "lorem.sentence"
 				},
 				"color": {
-				  "$ref": "#/definitions/colorObj"
+				  "$ref": "#/definitions/colorString"
 				}
 			  },
 			  "required": [
@@ -135,7 +113,7 @@
 			}
 		  },
 		  "color": {
-			"$ref": "#/definitions/colorObj"
+			"$ref": "#/definitions/colorString"
 		  }
 		},
 		"required": [
