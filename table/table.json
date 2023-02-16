@@ -1,5 +1,5 @@
 {
- "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-table\/v2.0.0\/table.json",
+ "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntaxes\/master\/table\/table.json",
  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
  "description": "Table data syntax for Valotalive",
  "type": "object",
