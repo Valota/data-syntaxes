@@ -1,67 +1,87 @@
 {
-  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-yammer\/v2.0.0\/yammer.json",
+  "$id": "https://raw.githubusercontent.com/Valota/data-syntaxes/master/yammer/yammer.json",
   "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
   "description": "Yammer data syntax for Valotalive",
   "type": "array",
-  "items": {
-	"type": "object",
-	"properties": {
-	  "type": {
-		"type": "string"
-	  },
-	  "title": {
-		"type": "string"
-	  },
-	  "title_html": {
-		"type": "string"
-	  },
-	  "post_id": {
-		"type": [
-		  "string",
-		  "integer"
-		]
-	  },
-	  "message": {
-		"type": "string"
-	  },
-	  "message_html": {
-		"type": "string"
-	  },
-	  "sent_at": {
-		"type": "integer"
-	  },
-	  "sender": {
-		"type": "object",
-		"properties": {
-		  "name": {
-			"type": "string"
-		  },
-		  "img": {
-			"type": "string",
-			"format": "uri"
-		  }
-		}
-	  },
-	  "img": {
-		"type": "string",
-		"format": "uri"
-	  },
-	  "icon": {
-		"type": "string"
-	  },
-	  "praised": {
-		"type": "array",
-		"items": {
+  "definitions": {
+	"message": {
+	  "type": "object",
+	  "properties": {
+		"type": {
+		  "type": "string"
+		},
+		"title": {
+		  "type": "string"
+		},
+		"title_html": {
+		  "type": "string"
+		},
+		"post_id": {
+		  "type": [
+			"string",
+			"integer"
+		  ]
+		},
+		"message": {
+		  "type": "string"
+		},
+		"message_html": {
+		  "type": "string"
+		},
+		"sent_at": {
+		  "type": "integer"
+		},
+		"sender": {
 		  "type": "object",
-		  "properties": {}
+		  "properties": {
+			"name": {
+			  "type": "string"
+			},
+			"img": {
+			  "type": "string",
+			  "format": "uri"
+			}
+		  }
+		},
+		"img": {
+		  "type": "string",
+		  "format": "uri"
+		},
+		"icon": {
+		  "type": "string"
+		},
+		"praised": {
+		  "type": "array",
+		  "items": {
+			"type": "object",
+			"properties": {}
+		  }
+		},
+		"shared_message": {
+		  "allOf": [
+			{
+			  "$ref": "#/definitions/message"
+			},
+			{
+			  "type": "object",
+			  "properties": {
+				"shared_in": {
+				  "type": "string"
+				}
+			  }
+			}
+		  ]
 		}
-	  }
-	},
-	"required": [
-	  "type",
-	  "post_id",
-	  "sent_at",
-	  "sender"
-	]
+	  },
+	  "required": [
+		"type",
+		"post_id",
+		"sent_at",
+		"sender"
+	  ]
+	}
+  },
+  "items": {
+	"$ref": "#/definitions/message"
   }
 }
