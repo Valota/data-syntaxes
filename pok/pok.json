@@ -1,0 +1,19 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-dcv\/v1.0.0\/dcv.json",
+    "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+    "description": "POK data syntax for Valotalive",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "array",
+            "properties": {}
+        },
+        "owner": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "data",
+        "owner"
+    ]
+}
