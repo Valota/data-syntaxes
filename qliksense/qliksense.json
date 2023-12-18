@@ -1,0 +1,18 @@
+{
+  "$id": "https://raw.githubusercontent.com/Valota/data-syntaxes/master/qlicksense/qliksense.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Qlicksense data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+    "appId": {
+      "type": "string"
+    },
+    "sheetId": {
+      "type": "string"
+    },
+    "tenant": {
+      "type": "string"
+    }
+  },
+  "required": ["appId", "sheetId", "tenant"]
+}
