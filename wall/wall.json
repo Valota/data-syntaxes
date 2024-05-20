@@ -15,7 +15,7 @@
 			"anyOf": [
 			  {
 				"type": "integer",
-				"faker": "finance.account"
+				"faker": "finance.accountNumber"
 			  },
 			  {
 				"type": "string",
@@ -30,7 +30,11 @@
 		  "lang": {
 			"type": "string",
 			"title": "Language",
-			"faker": "random.locale"
+			"faker": {
+			  "arrayElement": [
+				["en","fi","sv","de","fr","no","es"]
+			  ]
+			}
 		  },
 		  "post": {
 			"type": "string",
@@ -73,7 +77,7 @@
 			  "name": {
 				"type": "string",
 				"title": "User's name",
-				"faker": "name.fullName"
+				"faker": "person.fullName"
 			  },
 			  "avatar": {
 				"type": "string",
@@ -103,7 +107,7 @@
 				"format": "uri",
 				"description": "Can be an image or a video.",
 				"faker": {
-				  "image.imageUrl": [
+				  "image.url": [
 					1920,
 					1080,
 					"business",
@@ -117,7 +121,7 @@
 				"title": "media thumbnail",
 				"format": "uri",
 				"faker": {
-				  "image.imageUrl": [
+				  "image.url": [
 					640,
 					480,
 					"business",
@@ -193,7 +197,7 @@
 					"name": {
 					  "type": "string",
 					  "title": "User's name",
-					  "faker": "name.fullName"
+					  "faker": "person.fullName"
 					},
 					"avatar": {
 					  "type": "string",
@@ -246,7 +250,7 @@
 				  "title": "page's media",
 				  "format": "uri",
 				  "faker": {
-					"image.imageUrl": [
+					"image.url": [
 					  1920,
 					  1080,
 					  "business",
@@ -260,7 +264,7 @@
 				  "title": "page's thumbnail",
 				  "format": "uri",
 				  "faker": {
-					"image.imageUrl": [
+					"image.url": [
 					  640,
 					  480,
 					  "business",
@@ -319,7 +323,7 @@
 				"name": {
 				  "type": "string",
 				  "title": "User's name",
-				  "faker": "name.fullName"
+				  "faker": "person.fullName"
 				},
 				"avatar": {
 				  "type": "string",

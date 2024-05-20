@@ -1,0 +1,25 @@
+{
+  "$id": "https://raw.githubusercontent.com/Valota/data-syntaxes/master/sap-token-and-url/sap-token-and-url.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "SAP OAuth2 Access Token and URL data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"accessToken": {
+	  "type": "string"
+	},
+	"expires": {
+	  "type": "number",
+	  "format": "integer"
+	},
+	"analyticsCloudURL": {
+	  "type": "string",
+	  "format": "uri",
+	  "pattern": "^https://"
+	}
+  },
+  "required": [
+	"accessToken",
+	"expires",
+	"analyticsCloudURL"
+  ]
+}

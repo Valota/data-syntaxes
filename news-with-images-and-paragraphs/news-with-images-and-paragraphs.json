@@ -11,7 +11,7 @@
 		"anyOf": [
 		  {
 			"type": "integer",
-			"faker": "finance.account"
+			"faker": "finance.accountNumber"
 		  },
 		  {
 			"type": "string",
@@ -34,7 +34,7 @@
 		  "name": {
 			"type": "string",
 			"title": "Poster's name",
-			"faker": "name.fullName"
+			"faker": "person.fullName"
 		  },
 		  "avatar": {
 			"type": "string",
@@ -57,7 +57,7 @@
 			  "title": "Post's image.",
 			  "format": "uri",
 			  "faker": {
-				"image.imageUrl": [
+				"image.url": [
 				  1920,
 				  1080,
 				  "business",
@@ -112,7 +112,7 @@
 		"type": "string",
 		"format": "uri",
 		"faker": {
-		  "image.imageUrl": [
+		  "image.url": [
 			60,
 			60,
 			"abstract",
