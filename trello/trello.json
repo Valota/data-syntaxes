@@ -1,0 +1,15 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-trello\/v1.0.0\/trello.json",
+    "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+    "description": "Trello data syntax for Valotalive",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "object",
+            "properties": {}
+        }
+    },
+    "required": [
+        "data"
+    ]
+}
