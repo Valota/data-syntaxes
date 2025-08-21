@@ -1,0 +1,26 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-trello\/v1.0.0\/trello.json",
+    "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+    "description": "AI query data syntax for Valotalive",
+    "type": "object",
+    "properties": {
+        "files": {
+            "type": "object",
+            "properties": {}
+        },
+	"thoughts" : {
+		"type": "array",
+		"items": {
+			"type": "string"
+		}
+	},
+	"prompt" : {
+		"type": "string"
+	}
+    },
+    "required": [
+        "files",
+	"thoughts",
+	"prompt"
+    ]
+}
