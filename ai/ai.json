@@ -7,14 +7,9 @@
         "data": {
             "type": "object",
             "properties": {}
-        },
-		"config" : {
-			"type": "object",
-        	"properties": {}
-		}
+        }
     },
     "required": [
-        "data",
-		"config"
+        "data"
     ]
 }
