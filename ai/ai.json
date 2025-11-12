@@ -4,23 +4,12 @@
     "description": "AI query data syntax for Valotalive",
     "type": "object",
     "properties": {
-        "files": {
+        "data": {
             "type": "object",
             "properties": {}
-        },
-	"thoughts" : {
-		"type": "array",
-		"items": {
-			"type": "string"
-		}
-	},
-	"prompt" : {
-		"type": "string"
-	}
+        }
     },
     "required": [
-        "files",
-	"thoughts",
-	"prompt"
+        "data"
     ]
 }
