@@ -1,0 +1,15 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntaxes\/refs\/heads\/master\/month-days-status\/month-days-status.json",
+    "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+    "description": "Month days status data syntax for Valotalive",
+    "type": "object",
+    "properties": {
+        "calendarData": {
+            "type": "object",
+            "properties": {}
+        }
+    },
+    "required": [
+        "calendarData"
+    ]
+}
