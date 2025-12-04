@@ -1,0 +1,553 @@
+{
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntaxes\/refs\/heads\/master\/ms_planner\/ms_planner.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for Microsoft Planner",
+  "type": "object",
+  "properties": {
+	"plan": {
+	  "type": "string"
+	},
+	"plan_categories": {
+	  "type": "object",
+	  "properties": {
+		"category1": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category2": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category3": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category4": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category5": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category6": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category7": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category8": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category9": {
+		  "type": "string"
+		},
+		"category10": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category11": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category12": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category13": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category14": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category15": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category16": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category17": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category18": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category19": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category20": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category21": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category22": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category23": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category24": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		},
+		"category25": {
+		  "type": [
+			"string",
+			"null"
+		  ]
+		}
+	  },
+	  "required": [
+		"category1",
+		"category2",
+		"category3",
+		"category4",
+		"category5",
+		"category6",
+		"category7",
+		"category8",
+		"category9",
+		"category10",
+		"category11",
+		"category12",
+		"category13",
+		"category14",
+		"category15",
+		"category16",
+		"category17",
+		"category18",
+		"category19",
+		"category20",
+		"category21",
+		"category22",
+		"category23",
+		"category24",
+		"category25"
+	  ]
+	},
+	"buckets": {
+	  "type": "array",
+	  "items": {
+		"type": "object",
+		"properties": {
+		  "@odata.etag": {
+			"type": "string"
+		  },
+		  "name": {
+			"type": "string"
+		  },
+		  "planId": {
+			"type": "string"
+		  },
+		  "orderHint": {
+			"type": "string"
+		  },
+		  "id": {
+			"type": "string"
+		  },
+		  "tasks": {
+			"type": "array",
+			"items": {
+			  "type": "object",
+			  "properties": {
+				"@odata.etag": {
+				  "type": "string"
+				},
+				"isArchived": {
+				  "type": "boolean"
+				},
+				"planId": {
+				  "type": "string"
+				},
+				"bucketId": {
+				  "type": "string"
+				},
+				"title": {
+				  "type": "string"
+				},
+				"orderHint": {
+				  "type": "string"
+				},
+				"assigneePriority": {
+				  "type": "string"
+				},
+				"isOnMyDay": {
+				  "type": "boolean"
+				},
+				"percentComplete": {
+				  "type": "number"
+				},
+				"startDateTime": {
+				  "type": "string"
+				},
+				"createdDateTime": {
+				  "type": "string"
+				},
+				"lastModifiedDateTime": {
+				  "type": "string"
+				},
+				"dueDateTime": {
+				  "type": "string"
+				},
+				"hasDescription": {
+				  "type": "boolean"
+				},
+				"hasChat": {
+				  "type": "boolean"
+				},
+				"specifiedCompletionRequirements": {
+				  "type": "string"
+				},
+				"previewType": {
+				  "type": "string"
+				},
+				"completedDateTime": {
+				  "type": "string"
+				},
+				"referenceCount": {
+				  "type": "number"
+				},
+				"checklistItemCount": {
+				  "type": "number"
+				},
+				"activeChecklistItemCount": {
+				  "type": "number"
+				},
+				"conversationThreadId": {
+				  "type": "string"
+				},
+				"priority": {
+				  "type": "number"
+				},
+				"id": {
+				  "type": "string"
+				},
+				"recurrence": {
+				  "type": "object",
+				  "properties": {
+					"seriesId": {
+					  "type": "string"
+					},
+					"occurrenceId": {
+					  "type": "number"
+					},
+					"previousInSeriesTaskId": {},
+					"nextInSeriesTaskId": {},
+					"recurrenceStartDateTime": {
+					  "type": "string"
+					},
+					"schedule": {
+					  "type": "object",
+					  "properties": {
+						"patternStartDateTime": {
+						  "type": "string"
+						},
+						"nextOccurrenceDateTime": {
+						  "type": "string"
+						},
+						"pattern": {
+						  "type": "object",
+						  "properties": {
+							"type": {
+							  "type": "string"
+							},
+							"interval": {
+							  "type": "number"
+							},
+							"firstDayOfWeek": {
+							  "type": "string"
+							},
+							"dayOfMonth": {
+							  "type": "number"
+							},
+							"daysOfWeek": {
+							  "type": "array",
+							  "items": {
+								"type": "string"
+							  }
+							},
+							"index": {
+							  "type": "string"
+							},
+							"month": {
+							  "type": "number"
+							}
+						  },
+						  "required": [
+							"type",
+							"interval",
+							"firstDayOfWeek",
+							"dayOfMonth",
+							"daysOfWeek",
+							"index",
+							"month"
+						  ]
+						}
+					  },
+					  "required": [
+						"patternStartDateTime",
+						"nextOccurrenceDateTime",
+						"pattern"
+					  ]
+					}
+				  },
+				  "required": [
+					"seriesId",
+					"occurrenceId",
+					"previousInSeriesTaskId",
+					"nextInSeriesTaskId",
+					"recurrenceStartDateTime",
+					"schedule"
+				  ]
+				},
+				"archivalInfo": {},
+				"creationSource": {},
+				"createdBy": {
+				  "type": "object",
+				  "properties": {
+					"user": {
+					  "type": "object",
+					  "properties": {
+						"displayName": {},
+						"id": {
+						  "type": "string"
+						}
+					  },
+					  "required": [
+						"displayName",
+						"id"
+					  ]
+					},
+					"application": {
+					  "type": "object",
+					  "properties": {
+						"displayName": {},
+						"id": {
+						  "type": "string"
+						}
+					  },
+					  "required": [
+						"displayName",
+						"id"
+					  ]
+					}
+				  },
+				  "required": [
+					"user",
+					"application"
+				  ]
+				},
+				"lastModifiedBy": {
+				  "type": "object",
+				  "properties": {
+					"user": {
+					  "type": "object",
+					  "properties": {
+						"displayName": {},
+						"id": {
+						  "type": "string"
+						}
+					  },
+					  "required": [
+						"displayName",
+						"id"
+					  ]
+					},
+					"application": {
+					  "type": "object",
+					  "properties": {
+						"displayName": {},
+						"id": {
+						  "type": "string"
+						}
+					  },
+					  "required": [
+						"displayName",
+						"id"
+					  ]
+					}
+				  },
+				  "required": [
+					"user",
+					"application"
+				  ]
+				},
+				"completedBy": {
+				  "type": "object",
+				  "properties": {
+					"user": {
+					  "type": "object",
+					  "properties": {
+						"displayName": {},
+						"id": {
+						  "type": "string"
+						}
+					  },
+					  "required": [
+						"displayName",
+						"id"
+					  ]
+					},
+					"application": {
+					  "type": "object",
+					  "properties": {
+						"displayName": {},
+						"id": {
+						  "type": "string"
+						}
+					  },
+					  "required": [
+						"displayName",
+						"id"
+					  ]
+					}
+				  },
+				  "required": [
+					"user",
+					"application"
+				  ]
+				},
+				"appliedCategories": {},
+				"assignments": {},
+				"details": {
+				  "type": "object",
+				  "properties": {
+					"@odata.context": {
+					  "type": "string"
+					},
+					"@odata.etag": {
+					  "type": "string"
+					},
+					"id": {
+					  "type": "string"
+					},
+					"description": {
+					  "type": "string"
+					},
+					"previewType": {
+					  "type": "string"
+					},
+					"references": {},
+					"checklist": {}
+				  },
+				  "required": [
+					"@odata.context",
+					"@odata.etag",
+					"id",
+					"description",
+					"previewType",
+					"references",
+					"checklist"
+				  ]
+				}
+			  },
+			  "required": [
+				"@odata.etag",
+				"isArchived",
+				"planId",
+				"bucketId",
+				"title",
+				"orderHint",
+				"assigneePriority",
+				"isOnMyDay",
+				"percentComplete",
+				"createdDateTime",
+				"lastModifiedDateTime",
+				"hasDescription",
+				"hasChat",
+				"specifiedCompletionRequirements",
+				"previewType",
+				"referenceCount",
+				"checklistItemCount",
+				"activeChecklistItemCount",
+				"priority",
+				"id",
+				"archivalInfo",
+				"creationSource",
+				"createdBy",
+				"lastModifiedBy",
+				"appliedCategories",
+				"assignments",
+				"details"
+			  ]
+			}
+		  }
+		},
+		"required": [
+		  "@odata.etag",
+		  "name",
+		  "planId",
+		  "orderHint",
+		  "id",
+		  "tasks"
+		]
+	  }
+	}
+  },
+  "required": [
+	"plan",
+	"plan_categories",
+	"buckets"
+  ]
+}
