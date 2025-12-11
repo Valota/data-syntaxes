@@ -239,7 +239,10 @@
 				  "type": "number"
 				},
 				"startDateTime": {
-				  "type": "string"
+				  "type": [
+					"string",
+					"null"
+				  ]
 				},
 				"createdDateTime": {
 				  "type": "string"
@@ -248,7 +251,10 @@
 				  "type": "string"
 				},
 				"dueDateTime": {
-				  "type": "string"
+				  "type": [
+					"string",
+					"null"
+				  ]
 				},
 				"hasDescription": {
 				  "type": "boolean"
@@ -263,7 +269,10 @@
 				  "type": "string"
 				},
 				"completedDateTime": {
-				  "type": "string"
+				  "type": [
+					"string",
+					"null"
+				  ]
 				},
 				"referenceCount": {
 				  "type": "number"
@@ -275,7 +284,10 @@
 				  "type": "number"
 				},
 				"conversationThreadId": {
-				  "type": "string"
+				  "type": [
+					"string",
+					"null"
+				  ]
 				},
 				"priority": {
 				  "type": "number"
@@ -284,81 +296,88 @@
 				  "type": "string"
 				},
 				"recurrence": {
-				  "type": "object",
-				  "properties": {
-					"seriesId": {
-					  "type": "string"
+				  "oneOf": [
+					{
+					  "type": "null"
 					},
-					"occurrenceId": {
-					  "type": "number"
-					},
-					"previousInSeriesTaskId": {},
-					"nextInSeriesTaskId": {},
-					"recurrenceStartDateTime": {
-					  "type": "string"
-					},
-					"schedule": {
+					{
 					  "type": "object",
 					  "properties": {
-						"patternStartDateTime": {
+						"seriesId": {
 						  "type": "string"
 						},
-						"nextOccurrenceDateTime": {
+						"occurrenceId": {
+						  "type": "number"
+						},
+						"previousInSeriesTaskId": {},
+						"nextInSeriesTaskId": {},
+						"recurrenceStartDateTime": {
 						  "type": "string"
 						},
-						"pattern": {
+						"schedule": {
 						  "type": "object",
 						  "properties": {
-							"type": {
+							"patternStartDateTime": {
 							  "type": "string"
 							},
-							"interval": {
-							  "type": "number"
-							},
-							"firstDayOfWeek": {
+							"nextOccurrenceDateTime": {
 							  "type": "string"
 							},
-							"dayOfMonth": {
-							  "type": "number"
-							},
-							"daysOfWeek": {
-							  "type": "array",
-							  "items": {
-								"type": "string"
-							  }
-							},
-							"index": {
-							  "type": "string"
-							},
-							"month": {
-							  "type": "number"
+							"pattern": {
+							  "type": "object",
+							  "properties": {
+								"type": {
+								  "type": "string"
+								},
+								"interval": {
+								  "type": "number"
+								},
+								"firstDayOfWeek": {
+								  "type": "string"
+								},
+								"dayOfMonth": {
+								  "type": "number"
+								},
+								"daysOfWeek": {
+								  "type": "array",
+								  "items": {
+									"type": "string"
+								  }
+								},
+								"index": {
+								  "type": "string"
+								},
+								"month": {
+								  "type": "number"
+								}
+							  },
+							  "required": [
+								"type",
+								"interval",
+								"firstDayOfWeek",
+								"dayOfMonth",
+								"daysOfWeek",
+								"index",
+								"month"
+							  ]
 							}
 						  },
 						  "required": [
-							"type",
-							"interval",
-							"firstDayOfWeek",
-							"dayOfMonth",
-							"daysOfWeek",
-							"index",
-							"month"
+							"patternStartDateTime",
+							"nextOccurrenceDateTime",
+							"pattern"
 						  ]
 						}
 					  },
 					  "required": [
-						"patternStartDateTime",
-						"nextOccurrenceDateTime",
-						"pattern"
+						"seriesId",
+						"occurrenceId",
+						"previousInSeriesTaskId",
+						"nextInSeriesTaskId",
+						"recurrenceStartDateTime",
+						"schedule"
 					  ]
 					}
-				  },
-				  "required": [
-					"seriesId",
-					"occurrenceId",
-					"previousInSeriesTaskId",
-					"nextInSeriesTaskId",
-					"recurrenceStartDateTime",
-					"schedule"
 				  ]
 				},
 				"archivalInfo": {},
@@ -434,38 +453,45 @@
 				  ]
 				},
 				"completedBy": {
-				  "type": "object",
-				  "properties": {
-					"user": {
-					  "type": "object",
-					  "properties": {
-						"displayName": {},
-						"id": {
-						  "type": "string"
-						}
-					  },
-					  "required": [
-						"displayName",
-						"id"
-					  ]
+				  "oneOf": [
+					{
+					  "type": "null"
 					},
-					"application": {
+					{
 					  "type": "object",
 					  "properties": {
-						"displayName": {},
-						"id": {
-						  "type": "string"
+						"user": {
+						  "type": "object",
+						  "properties": {
+							"displayName": {},
+							"id": {
+							  "type": "string"
+							}
+						  },
+						  "required": [
+							"displayName",
+							"id"
+						  ]
+						},
+						"application": {
+						  "type": "object",
+						  "properties": {
+							"displayName": {},
+							"id": {
+							  "type": "string"
+							}
+						  },
+						  "required": [
+							"displayName",
+							"id"
+						  ]
 						}
 					  },
 					  "required": [
-						"displayName",
-						"id"
+						"user",
+						"application"
 					  ]
 					}
-				  },
-				  "required": [
-					"user",
-					"application"
 				  ]
 				},
 				"appliedCategories": {},
