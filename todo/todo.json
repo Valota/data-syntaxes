@@ -1,0 +1,23 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntaxes\/refs\/heads\/master\/todo\/todo.json",
+    "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+    "description": "TODO tasks data syntax for Valotalive",
+    "type": "object",
+    "properties": {
+        "tasks": {
+        	"type": "array",
+		"items": {
+			"type": "object",
+			"properties": {}
+		}
+        },
+	"syntax": {
+            "type": "object",
+            "properties": {}
+	}
+    },
+    "required": [
+        "tasks",
+	"syntax"
+    ]
+}
