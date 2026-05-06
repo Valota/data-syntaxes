@@ -1,0 +1,24 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntaxes\/refs\/heads\/master\/feedback\/feedback.json",
+    "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+    "description": "TODO tasks data syntax for Valotalive",
+    "type": "object",
+    "properties": {
+        "given_feedback": {
+		"type": "integer"
+        },
+	"syntax": {
+		"type": "object",
+		"properties": {}
+	},
+	"options": {
+		"type": "object",
+		"properties": {}
+	}
+    },
+    "required": [
+	"given_feedback",
+	"syntax",
+	"options"
+    ]
+}
