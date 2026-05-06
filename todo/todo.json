@@ -14,10 +14,15 @@
 	"syntax": {
             "type": "object",
             "properties": {}
+	},
+	"options": {
+            "type": "object",
+            "properties": {}
 	}
     },
     "required": [
         "tasks",
-	"syntax"
+	"syntax",
+	"options"
     ]
 }
