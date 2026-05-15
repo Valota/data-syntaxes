@@ -1,0 +1,65 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntaxes\/refs\/heads\/master\/html\/html.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "HTML data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+	"data": {
+		"type": "object",
+		"properties": {
+		  "id": {
+			"title": "Post's identifier",
+			"anyOf": [
+			  {
+				"type": "integer",
+				"faker": "finance.accountNumber"
+			  },
+			  {
+				"type": "string",
+				"faker": {
+				  "datatype.hexaDecimal": [
+					32
+				  ]
+				}
+			  }
+			]
+		  },
+		  "lang": {
+			"type": "string",
+			"title": "Language",
+			"faker": {
+			  "arrayElement": [
+				["en","fi","sv","de","fr","no","es"]
+			  ]
+			}
+		  },
+		  "url": {
+			"type": "string",
+			"title": "URL to the HTML page",
+			"description": "",
+			"faker": "lorem.url"
+		  },
+		},
+		"required": [
+		  "id",
+		  "url"
+		]
+	  }
+	},
+	"config": {
+	  "type": "object",
+	  "properties": {
+		"name": {
+		  "type": "string",
+		  "title": "Name of the source",
+		  "faker": "lorem.sentence"
+		}
+	  },
+	  "additionalProperties": false
+	}
+  },
+  "required": [
+	"config",
+	"data"
+  ]
+}
