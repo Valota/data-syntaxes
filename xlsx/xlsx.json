@@ -1,0 +1,14 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntaxes\/refs\/heads\/master\/xlsx\/xlsx.json",
+    "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+    "description": "XLSX file data syntax for Valotalive",
+    "type": "object",
+    "properties": {
+        "xlsx": {
+        	"type": "string"
+        }
+    },
+    "required": [
+        "xlsx"
+    ]
+}
