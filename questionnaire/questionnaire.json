@@ -1,0 +1,15 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntaxes\/refs\/heads\/master\/questionnaire\/questionnaire.json",
+    "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+    "description": "Questionnaire data syntax for Valotalive",
+    "type": "object",
+    "properties": {
+	"options": {
+		"type": "object",
+		"properties": {}
+	}
+    },
+    "required": [
+	"options"
+    ]
+}
