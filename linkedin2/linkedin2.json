@@ -1,0 +1,81 @@
+{
+  "$id": "https://raw.githubusercontent.com/Valota/data-syntaxes/master/linkedin2/linkedin2.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "LinkedIn 2 data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+    "channel": {
+      "title": "Name of the LinkedIn organization",
+      "type": "string"
+    },
+    "posts": {
+      "title": "Organization's latest posts, newest first",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Post's identifier as a LinkedIn URN",
+            "type": "string"
+          },
+          "text": {
+            "title": "Post's body text",
+            "type": "string"
+          },
+          "publishedAt": {
+            "title": "Publish time as milliseconds from unix epoch",
+            "type": "integer",
+            "minimum": 0
+          },
+          "images": {
+            "title": "Post's media as still images, video and article media as thumbnails",
+            "type": "array",
+            "items": {
+              "title": "URI to the image",
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "author": {
+            "title": "Post's author",
+            "type": "object",
+            "properties": {
+              "name": {
+                "title": "Author's name",
+                "type": "string"
+              },
+              "avatar": {
+                "title": "URI to the author's logo",
+                "type": ["string", "null"]
+              }
+            },
+            "required": [
+              "name"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "publishedAt",
+          "images",
+          "author"
+        ]
+      }
+    },
+    "error": {
+      "title": "Latest error message, null when the last fetch succeeded",
+      "type": ["string", "null"]
+    },
+    "test": {
+      "title": "Is this test data?",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "channel",
+    "posts",
+    "error",
+    "test"
+  ]
+}
