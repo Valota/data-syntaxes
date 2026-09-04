@@ -27,14 +27,55 @@
             "type": "integer",
             "minimum": 0
           },
-          "images": {
-            "title": "Post's media as still images, video and article media as thumbnails",
-            "type": "array",
-            "items": {
-              "title": "URI to the image",
-              "type": "string",
-              "format": "uri"
-            }
+          "media": {
+            "title": "Post's media, resolved to URLs a display can use directly",
+            "type": "object",
+            "properties": {
+              "type": {
+                "title": "Kind of media the post carries",
+                "description": "A LinkedIn post carries exactly one kind of media. \"image\": a single still. \"carousel\": several stills posted as one item. \"video\": a directly playable video. \"document\": a PDF or slide deck, pre-rendered by LinkedIn as one image per page. \"article\": a link share, for which only a preview image exists. \"none\": a text-only post, or a post whose media could not be resolved.",
+                "type": "string",
+                "enum": [
+                  "none",
+                  "image",
+                  "carousel",
+                  "video",
+                  "document",
+                  "article"
+                ]
+              },
+              "images": {
+                "title": "Ordered still images",
+                "description": "The single image, the carousel frames, or the document's pages in page order. Empty for \"video\" and \"none\".",
+                "type": "array",
+                "items": {
+                  "title": "URI to the image",
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "video": {
+                "title": "URI to a directly playable video, null unless type is \"video\"",
+                "description": "A progressive stream (normally MP4) served publicly by LinkedIn, so a display can play it without caching or a streaming library.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "thumbnail": {
+                "title": "Poster still for \"video\", preview image for \"article\", otherwise null",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "images",
+              "video",
+              "thumbnail"
+            ]
           },
           "author": {
             "title": "Post's author",
@@ -46,7 +87,10 @@
               },
               "avatar": {
                 "title": "URI to the author's logo",
-                "type": ["string", "null"]
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
             },
             "required": [
@@ -58,18 +102,38 @@
           "id",
           "text",
           "publishedAt",
-          "images",
+          "media",
           "author"
         ]
       }
     },
     "error": {
       "title": "Latest error message, null when the last fetch succeeded",
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "test": {
       "title": "Is this test data?",
       "type": "boolean"
+    },
+    "dateFormat": {
+      "title": "Date format chosen for the source",
+      "type": "string",
+      "enum": [
+        "eu",
+        "us"
+      ]
+    },
+    "textMode": {
+      "title": "How displays should handle long post text",
+      "description": "\"cut\": clamp the text. \"entire\": shrink it until the whole post fits.",
+      "type": "string",
+      "enum": [
+        "cut",
+        "entire"
+      ]
     }
   },
   "required": [
