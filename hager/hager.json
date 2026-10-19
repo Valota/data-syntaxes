@@ -56,6 +56,16 @@
             "format": "uri",
             "faker": "image.url"
           },
+          "link": {
+            "title": "Link to the article in Hager's intranet, null when it can't be built",
+            "description": "Built the same way Staffbase's own player builds its QR code links (live.hager.com/openlink/content/news/<type>/<id> with utm parameters). Displays show it as a QR code when settings.qrCode is true. Opening it needs a Hager intranet login.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri",
+            "faker": "internet.url"
+          },
           "publishedAt": {
             "title": "Publish time as seconds from unix epoch, null when unknown",
             "type": [
@@ -91,6 +101,7 @@
           "title",
           "teaser",
           "image",
+          "link",
           "publishedAt",
           "language"
         ]
@@ -143,6 +154,10 @@
         "showDateTime": {
           "title": "Whether to show the current date and time on the slides",
           "type": "boolean"
+        },
+        "qrCode": {
+          "title": "Whether to show each article's link as a QR code",
+          "type": "boolean"
         }
       },
       "required": [
@@ -151,7 +166,8 @@
         "fillImage",
         "backgroundColor",
         "logo",
-        "showDateTime"
+        "showDateTime",
+        "qrCode"
       ]
     }
   },
