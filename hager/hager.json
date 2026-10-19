@@ -1,0 +1,163 @@
+{
+  "$id": "https://raw.githubusercontent.com/Valota/data-syntaxes/refs/heads/master/hager/hager.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Hager data syntax for Valotalive",
+  "type": "object",
+  "properties": {
+    "time": {
+      "title": "Newest change in the slideshow, as seconds from unix epoch",
+      "description": "The newest of the slideshow's own update time and its articles' publish times. The channel server reads this as the payload's latestContent. Always present.",
+      "type": "integer",
+      "minimum": 0,
+      "vlt": {
+        "formattedDateWithinFromNow": [
+          -7,
+          0,
+          "d",
+          "X"
+        ]
+      }
+    },
+    "articles": {
+      "title": "The slideshow's intranet news articles, in the order Hager shows them",
+      "description": "One slide per article. Can be empty when nothing is published in the slideshow; a display then has nothing to show.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Article's identifier in Staffbase",
+            "type": "string",
+            "faker": {
+              "database.mongodbObjectId": []
+            }
+          },
+          "title": {
+            "title": "Article's headline, as plain text",
+            "type": "string",
+            "faker": "lorem.sentence"
+          },
+          "teaser": {
+            "title": "Short introduction to the article, as plain text, null when there is none",
+            "description": "Can be a few sentences long; displays should clamp it rather than shrink the text.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "faker": "lorem.paragraph"
+          },
+          "image": {
+            "title": "URL of the article's image, null when it has none",
+            "description": "Points to live.hager.com with a signed media_token query parameter; use the URL as is.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri",
+            "faker": "image.url"
+          },
+          "publishedAt": {
+            "title": "Publish time as seconds from unix epoch, null when unknown",
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "vlt": {
+              "formattedDateWithinFromNow": [
+                -14,
+                0,
+                "d",
+                "X"
+              ]
+            }
+          },
+          "language": {
+            "title": "Article's language as a locale with an underscore, e.g. fr_FR, null when unknown",
+            "description": "Displays use it to format dates in the article's own language (fr_FR → fr-FR).",
+            "type": [
+              "string",
+              "null"
+            ],
+            "examples": [
+              "fr_FR",
+              "de_DE",
+              "en_US"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "teaser",
+          "image",
+          "publishedAt",
+          "language"
+        ]
+      }
+    },
+    "settings": {
+      "title": "Display settings Hager has chosen for the slideshow in Staffbase Studio",
+      "description": "Displays follow these instead of their own palette and timing, so the screens look as Hager configured them.",
+      "type": "object",
+      "properties": {
+        "duration": {
+          "title": "Seconds each article is shown",
+          "type": "integer",
+          "minimum": 1,
+          "default": 15
+        },
+        "layout": {
+          "title": "Orientation the slideshow was designed for",
+          "description": "Staffbase's value verbatim. LANDSCAPE is the only value seen so far; displays should lay out by their actual size and treat this as a hint.",
+          "type": "string",
+          "default": "LANDSCAPE",
+          "examples": [
+            "LANDSCAPE",
+            "PORTRAIT"
+          ]
+        },
+        "fillImage": {
+          "title": "Whether article images fill their area (cropping) instead of fitting inside it",
+          "type": "boolean"
+        },
+        "backgroundColor": {
+          "title": "Slide background color as #rrggbb, null when not set",
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "faker": "color.rgb"
+        },
+        "logo": {
+          "title": "URL of Hager's logo to show on every slide, null when there is none",
+          "description": "Points to live.hager.com with a signed media_token query parameter; use the URL as is.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "faker": "image.url"
+        },
+        "showDateTime": {
+          "title": "Whether to show the current date and time on the slides",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "duration",
+        "layout",
+        "fillImage",
+        "backgroundColor",
+        "logo",
+        "showDateTime"
+      ]
+    }
+  },
+  "required": [
+    "time",
+    "articles",
+    "settings"
+  ]
+}
