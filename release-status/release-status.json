@@ -1,0 +1,293 @@
+{
+    "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntaxes\/refs\/heads\/master\/release-status\/release-status.json",
+    "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+    "description": "Release Status data syntax for Valotalive",
+    "type": "object",
+    "definitions": {
+        "commitCounts": {
+            "title": "How many commits of a release are in each testing state",
+            "description": "Every commit falls in exactly one state, the worst of the Jira tasks it names, so the four always add up to total. Ready is tested, inProgress is being tested, notStarted is waiting for testing and na names no task at all and has not been signed off.",
+            "type": "object",
+            "properties": {
+                "ready": {
+                    "title": "Commits tested, or signed off as minor",
+                    "type": "integer",
+                    "minimum": 0,
+                    "faker": {
+                        "number.int": [{"min": 0, "max": 60}]
+                    }
+                },
+                "inProgress": {
+                    "title": "Commits whose task is somewhere between development and done",
+                    "type": "integer",
+                    "minimum": 0,
+                    "faker": {
+                        "number.int": [{"min": 0, "max": 30}]
+                    }
+                },
+                "notStarted": {
+                    "title": "Commits whose task has not been started",
+                    "type": "integer",
+                    "minimum": 0,
+                    "faker": {
+                        "number.int": [{"min": 0, "max": 15}]
+                    }
+                },
+                "na": {
+                    "title": "Commits with no task and no sign-off",
+                    "type": "integer",
+                    "minimum": 0,
+                    "faker": {
+                        "number.int": [{"min": 0, "max": 5}]
+                    }
+                },
+                "total": {
+                    "title": "All commits in the release",
+                    "description": "The sum of the four states.",
+                    "type": "integer",
+                    "minimum": 0,
+                    "faker": {
+                        "number.int": [{"min": 0, "max": 110}]
+                    }
+                }
+            },
+            "required": [
+                "ready",
+                "inProgress",
+                "notStarted",
+                "na",
+                "total"
+            ]
+        },
+        "taskCounts": {
+            "title": "How many of the Jira tasks a release refers to are in each state",
+            "description": "Each task is counted once however many commits name it. Tasks have no n\/a state: a commit without a task is only counted in commits.",
+            "type": "object",
+            "properties": {
+                "ready": {
+                    "title": "Tasks done, or accepted for this release",
+                    "type": "integer",
+                    "minimum": 0,
+                    "faker": {
+                        "number.int": [{"min": 0, "max": 20}]
+                    }
+                },
+                "inProgress": {
+                    "title": "Tasks somewhere between development and done",
+                    "type": "integer",
+                    "minimum": 0,
+                    "faker": {
+                        "number.int": [{"min": 0, "max": 10}]
+                    }
+                },
+                "notStarted": {
+                    "title": "Tasks not started, or not readable from Jira",
+                    "type": "integer",
+                    "minimum": 0,
+                    "faker": {
+                        "number.int": [{"min": 0, "max": 5}]
+                    }
+                },
+                "total": {
+                    "title": "All tasks the release refers to",
+                    "type": "integer",
+                    "minimum": 0,
+                    "faker": {
+                        "number.int": [{"min": 0, "max": 35}]
+                    }
+                }
+            },
+            "required": [
+                "ready",
+                "inProgress",
+                "notStarted",
+                "total"
+            ]
+        },
+        "release": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "title": "The release's folder name",
+                    "description": "\"next\" for the release in progress, the release date as YYYY-MM-DD for a shipped one.",
+                    "type": "string",
+                    "pattern": "^(next|[0-9]{4}-[0-9]{2}-[0-9]{2})$"
+                },
+                "updated": {
+                    "title": "When these counts were published, as seconds from unix epoch",
+                    "type": "integer",
+                    "minimum": 0,
+                    "vlt": {
+                        "formattedDateWithinFromNow": [
+                            -2,
+                            0,
+                            "d",
+                            "X"
+                        ]
+                    }
+                },
+                "readyPercent": {
+                    "title": "Share of the release's commits that are ready, 0-100",
+                    "description": "ready \/ total * 100 with one decimal, 0 when the release has no commits. The figure the release is judged by: it is ready to ship at 100.",
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "faker": {
+                        "number.float": [{"min": 0, "max": 100, "fractionDigits": 1}]
+                    }
+                },
+                "commits": {
+                    "$ref": "#\/definitions\/commitCounts"
+                },
+                "tasks": {
+                    "$ref": "#\/definitions\/taskCounts"
+                },
+                "components": {
+                    "title": "Per-component commit counts, for the components that changed",
+                    "description": "Only components with at least one commit in the release, in the order the release tooling lists them. Components without changes are left out.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "title": "Component (repository) name, e.g. \"channel-server\"",
+                                "type": "string",
+                                "chance": {
+                                    "pickone": [
+                                        [
+                                            "channel-server",
+                                            "channel-client",
+                                            "channel-engine",
+                                            "database-main",
+                                            "node-push-client",
+                                            "utils-server-tools"
+                                        ]
+                                    ]
+                                }
+                            },
+                            "commits": {
+                                "$ref": "#\/definitions\/commitCounts"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "commits"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "updated",
+                "readyPercent",
+                "commits",
+                "tasks",
+                "components"
+            ]
+        }
+    },
+    "properties": {
+        "title": {
+            "title": "Heading for the display, e.g. \"Valotalive release\"",
+            "description": "Set by whoever created the source instance.",
+            "type": "string",
+            "faker": "commerce.productName"
+        },
+        "product": {
+            "title": "Which product's releases this is",
+            "description": "platform is the Valotalive platform (the releases repository), wall is Valota Wall (wall-releases).",
+            "type": "string",
+            "enum": [
+                "platform",
+                "wall"
+            ]
+        },
+        "updated": {
+            "title": "When the release tooling last published, as seconds from unix epoch",
+            "description": "The channel server reads this as the payload's latestContent. 0 when nothing has been published yet.",
+            "type": "integer",
+            "minimum": 0,
+            "vlt": {
+                "formattedDateWithinFromNow": [
+                    -1,
+                    0,
+                    "d",
+                    "X"
+                ]
+            }
+        },
+        "current": {
+            "title": "The release in progress",
+            "description": "null until the release tooling has published once.",
+            "oneOf": [
+                {
+                    "$ref": "#\/definitions\/release"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "previous": {
+            "title": "The latest shipped release",
+            "description": "For comparison: how the previous release stood when it was last published. null when there is none.",
+            "oneOf": [
+                {
+                    "$ref": "#\/definitions\/release"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "history": {
+            "title": "How the release in progress has advanced, oldest first",
+            "description": "One point per day the counts were published since the previous release shipped: the last publication of each day. Starts over empty when a new release cycle begins.",
+            "type": "array",
+            "maxItems": 90,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "time": {
+                        "title": "When this point was published, as seconds from unix epoch",
+                        "type": "integer",
+                        "minimum": 0,
+                        "vlt": {
+                            "formattedDateWithinFromNow": [
+                                -30,
+                                0,
+                                "d",
+                                "X"
+                            ]
+                        }
+                    },
+                    "readyPercent": {
+                        "title": "Share of commits ready at that time, 0-100",
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100,
+                        "faker": {
+                            "number.float": [{"min": 0, "max": 100, "fractionDigits": 1}]
+                        }
+                    },
+                    "commits": {
+                        "$ref": "#\/definitions\/commitCounts"
+                    }
+                },
+                "required": [
+                    "time",
+                    "readyPercent",
+                    "commits"
+                ]
+            }
+        }
+    },
+    "required": [
+        "title",
+        "product",
+        "updated",
+        "current",
+        "previous",
+        "history"
+    ]
+}
